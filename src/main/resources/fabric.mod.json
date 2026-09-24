@@ -3,17 +3,24 @@
 	"id": "cpvphelper",
 	"version": "${version}",
 	"name": "CPvPHelper",
-	"description": "Crystal PvP helper mod.",
+	"description": "Crystal PvP helper: AutoTotem and AnchorPlace. Configurable through Mod Menu.",
 	"authors": [
 		"colegiialas-prog"
 	],
 	"license": "MIT",
+	"icon": "assets/cpvphelper/icon.png",
 	"environment": "client",
 	"entrypoints": {
 		"client": [
 			"com.cpvphelper.CPvPHelper"
+		],
+		"modmenu": [
+			"com.cpvphelper.config.ModMenuIntegration"
 		]
 	},
+	"mixins": [
+		"cpvphelper.mixins.json"
+	],
 	"depends": {
 		"fabricloader": ">=0.19.5",
 		"minecraft": "~26.2",

@@ -1,0 +1,38 @@
+{
+	"cpvphelper.config.title": "CPvPHelper",
+	"cpvphelper.feature.autototem": "AutoTotem",
+	"cpvphelper.feature.anchorplace": "AnchorPlace",
+	"cpvphelper.message.toggled": "%s: %s",
+	"cpvphelper.value.ticks": "%s ticks",
+
+	"cpvphelper.option.enabled": "Enabled",
+	"cpvphelper.option.totem.enabled.tooltip": "Puts a totem into the offhand as soon as it is empty.",
+	"cpvphelper.option.totem.replace": "Replace Offhand Items",
+	"cpvphelper.option.totem.replace.tooltip": "Also replaces a non-totem item held in the offhand. When off, only an empty offhand is refilled.",
+	"cpvphelper.option.totem.hotbar": "Hotbar Swap (F)",
+	"cpvphelper.option.totem.hotbar.tooltip": "Takes a totem from the hotbar with the vanilla swap-hands action: selects its slot, swaps, selects the old slot again. No inventory clicks and no movement stop.",
+	"cpvphelper.option.totem.inventory": "Inventory Swap",
+	"cpvphelper.option.totem.inventory.tooltip": "Without a hotbar totem: releases the movement keys like opening the inventory does, swaps the totem into the offhand and closes the inventory. Your velocity is never changed.",
+	"cpvphelper.option.totem.in_air": "Inventory Swap in Air",
+	"cpvphelper.option.totem.in_air.tooltip": "In the air the keys are released as well, but momentum is kept, so you don't stop mid-air. Off: the inventory swap waits for landing.",
+	"cpvphelper.option.totem.stop_ticks": "Key Release",
+	"cpvphelper.option.totem.stop_ticks.tooltip": "How many ticks the movement keys stay released before the inventory click. 1 tick is enough.",
+	"cpvphelper.option.totem.delay": "Delay",
+	"cpvphelper.option.totem.delay.tooltip": "Reaction delay after the offhand becomes empty. 0 = instant.",
+	"cpvphelper.option.totem.random_delay": "Random Delay",
+	"cpvphelper.option.totem.random_delay.tooltip": "Adds 0 to N random ticks on top of the delay.",
+
+	"cpvphelper.option.anchor.enabled.tooltip": "Right click a block with a sword: places a respawn anchor, charges it with glowstone, switches back to the sword and detonates it. Anchor and glowstone must be in the hotbar.",
+	"cpvphelper.option.anchor.only_ground": "Only on Ground",
+	"cpvphelper.option.anchor.only_ground.tooltip": "Only works while you are standing on the ground.",
+	"cpvphelper.option.anchor.charge_delay": "Charge Delay",
+	"cpvphelper.option.anchor.charge_delay.tooltip": "Ticks between placing the anchor and charging it. 0 = same tick.",
+	"cpvphelper.option.anchor.explode_delay": "Explode Delay",
+	"cpvphelper.option.anchor.explode_delay.tooltip": "Ticks between charging the anchor and detonating it. 0 = same tick.",
+	"cpvphelper.option.anchor.explode": "Detonate",
+	"cpvphelper.option.anchor.explode.tooltip": "Detonate the anchor with the sword. When off, it is only placed and charged, then the sword is selected again.",
+
+	"key.category.cpvphelper.main": "CPvPHelper",
+	"key.cpvphelper.toggle_autototem": "Toggle AutoTotem",
+	"key.cpvphelper.toggle_anchorplace": "Toggle AnchorPlace"
+}

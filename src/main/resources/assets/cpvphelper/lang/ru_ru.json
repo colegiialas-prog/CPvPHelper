@@ -1,0 +1,38 @@
+{
+	"cpvphelper.config.title": "CPvPHelper",
+	"cpvphelper.feature.autototem": "AutoTotem",
+	"cpvphelper.feature.anchorplace": "AnchorPlace",
+	"cpvphelper.message.toggled": "%s: %s",
+	"cpvphelper.value.ticks": "%s тик.",
+
+	"cpvphelper.option.enabled": "Включено",
+	"cpvphelper.option.totem.enabled.tooltip": "Кладёт тотем во вторую руку, как только она опустела.",
+	"cpvphelper.option.totem.replace": "Заменять предметы",
+	"cpvphelper.option.totem.replace.tooltip": "Заменять тотемом и другие предметы во второй руке. Если выключено, заполняется только пустая вторая рука.",
+	"cpvphelper.option.totem.hotbar": "Свап из хотбара (F)",
+	"cpvphelper.option.totem.hotbar.tooltip": "Берёт тотем из хотбара ванильным действием смены рук: выбирает его слот, меняет руки и возвращает прежний слот. Без кликов в инвентаре и без остановки.",
+	"cpvphelper.option.totem.inventory": "Свап из инвентаря",
+	"cpvphelper.option.totem.inventory.tooltip": "Если в хотбаре нет тотема: отпускает клавиши движения, как при открытии инвентаря, кладёт тотем во вторую руку и закрывает инвентарь. Скорость игрока не меняется.",
+	"cpvphelper.option.totem.in_air": "Свап из инвентаря в воздухе",
+	"cpvphelper.option.totem.in_air.tooltip": "В воздухе клавиши тоже отпускаются, но инерция сохраняется, поэтому в воздухе ты не останавливаешься. Если выключено, свап из инвентаря ждёт приземления.",
+	"cpvphelper.option.totem.stop_ticks": "Остановка",
+	"cpvphelper.option.totem.stop_ticks.tooltip": "Сколько тиков клавиши движения отпущены перед кликом в инвентаре. Хватает 1 тика.",
+	"cpvphelper.option.totem.delay": "Задержка",
+	"cpvphelper.option.totem.delay.tooltip": "Задержка реакции после того, как вторая рука опустела. 0 = мгновенно.",
+	"cpvphelper.option.totem.random_delay": "Случайная задержка",
+	"cpvphelper.option.totem.random_delay.tooltip": "Добавляет к задержке случайно от 0 до N тиков.",
+
+	"cpvphelper.option.anchor.enabled.tooltip": "ПКМ мечом по блоку: ставит якорь возрождения, заряжает его светокамнем, возвращается на меч и взрывает. Якорь и светокамень должны лежать в хотбаре.",
+	"cpvphelper.option.anchor.only_ground": "Только на земле",
+	"cpvphelper.option.anchor.only_ground.tooltip": "Работает, только когда ты стоишь на земле.",
+	"cpvphelper.option.anchor.charge_delay": "Задержка зарядки",
+	"cpvphelper.option.anchor.charge_delay.tooltip": "Тики между установкой якоря и зарядкой. 0 = в тот же тик.",
+	"cpvphelper.option.anchor.explode_delay": "Задержка взрыва",
+	"cpvphelper.option.anchor.explode_delay.tooltip": "Тики между зарядкой и взрывом. 0 = в тот же тик.",
+	"cpvphelper.option.anchor.explode": "Взрывать",
+	"cpvphelper.option.anchor.explode.tooltip": "Взрывать якорь мечом. Если выключено, якорь только ставится и заряжается, потом снова выбирается меч.",
+
+	"key.category.cpvphelper.main": "CPvPHelper",
+	"key.cpvphelper.toggle_autototem": "Вкл/выкл AutoTotem",
+	"key.cpvphelper.toggle_anchorplace": "Вкл/выкл AnchorPlace"
+}
