@@ -1,0 +1,26 @@
+{
+	"schemaVersion": 1,
+	"id": "cpvphelper",
+	"version": "${version}",
+	"name": "CPvPHelper",
+	"description": "Crystal PvP helper mod.",
+	"authors": [
+		"colegiialas-prog"
+	],
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.cpvphelper.CPvPHelper"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}
