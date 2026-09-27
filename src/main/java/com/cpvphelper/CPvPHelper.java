@@ -1,6 +1,7 @@
 package com.cpvphelper;
 
 import com.cpvphelper.config.CPvPConfig;
+import com.cpvphelper.feature.SpearSwap;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -35,6 +36,10 @@ public class CPvPHelper implements ClientModInitializer {
 		toggleStunSlam = KeyMappingHelper.registerKeyMapping(
 			new KeyMapping("key.cpvphelper.toggle_stunslam", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
 		);
+		// Handled in handleKeybinds, next to the vanilla attack key. Mouse buttons can be bound too.
+		SpearSwap.init(KeyMappingHelper.registerKeyMapping(
+			new KeyMapping("key.cpvphelper.spear_swap", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
+		));
 
 		ClientTickEvents.END_CLIENT_TICK.register(CPvPHelper::handleToggleKeys);
 		LOGGER.info("CPvPHelper loaded");

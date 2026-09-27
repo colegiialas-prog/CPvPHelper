@@ -3,6 +3,7 @@
 	"cpvphelper.feature.autototem": "AutoTotem",
 	"cpvphelper.feature.anchorplace": "AnchorPlace",
 	"cpvphelper.feature.stunslam": "StunSlam",
+	"cpvphelper.feature.spearswap": "SpearSwap",
 	"cpvphelper.message.toggled": "%s: %s",
 	"cpvphelper.value.ticks": "%s тик.",
 
@@ -41,8 +42,15 @@
 	"cpvphelper.option.stun_slam.delay": "Задержка булавы",
 	"cpvphelper.option.stun_slam.delay.tooltip": "Тики между ударом топором и ударом булавой. 0 = в тот же тик. С задержкой цель должна оставаться под прицелом.",
 
+	"cpvphelper.option.spear_swap.enabled.tooltip": "Attribute swap по клавише «Спир-свап» (Управление → CPvPHelper, можно и кнопку мыши): выбирает копьё в хотбаре, делает укол и в тот же тик возвращается на твой предмет. Работает с любым предметом в руке. Копьё с «Выпадом» толкает тебя вперёд, первым берётся копьё с самым высоким уровнем «Выпада».",
+	"cpvphelper.option.spear_swap.hold": "Повтор при удержании",
+	"cpvphelper.option.spear_swap.hold.tooltip": "Пока клавиша зажата, укол повторяется каждый раз, когда атака заряжена. Если выключено, один укол на одно нажатие.",
+	"cpvphelper.option.spear_swap.repeat_delay": "Задержка повтора",
+	"cpvphelper.option.spear_swap.repeat_delay.tooltip": "Дополнительные тики между уколами при зажатой клавише. 0 = сразу, как только атака заряжена.",
+
 	"key.category.cpvphelper.main": "CPvPHelper",
 	"key.cpvphelper.toggle_autototem": "Вкл/выкл AutoTotem",
 	"key.cpvphelper.toggle_anchorplace": "Вкл/выкл AnchorPlace",
-	"key.cpvphelper.toggle_stunslam": "Вкл/выкл StunSlam"
+	"key.cpvphelper.toggle_stunslam": "Вкл/выкл StunSlam",
+	"key.cpvphelper.spear_swap": "Спир-свап"
 }

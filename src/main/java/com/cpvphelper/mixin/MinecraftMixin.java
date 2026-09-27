@@ -3,6 +3,7 @@ package com.cpvphelper.mixin;
 import com.cpvphelper.feature.AnchorPlace;
 import com.cpvphelper.feature.AutoTotem;
 import com.cpvphelper.feature.ClientTicks;
+import com.cpvphelper.feature.SpearSwap;
 import com.cpvphelper.feature.StunSlam;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -30,6 +31,7 @@ public abstract class MinecraftMixin {
 		boolean totemSwapped = AutoTotem.onKeybinds(mc);
 		AnchorPlace.onKeybinds(mc, totemSwapped);
 		StunSlam.onKeybinds(mc);
+		SpearSwap.onKeybinds(mc);
 	}
 
 	/** The attack of a left click on an entity: an axe hit may be followed by a mace hit. */

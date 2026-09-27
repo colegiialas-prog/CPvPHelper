@@ -85,6 +85,20 @@ public class ConfigScreen extends OptionsSubScreen {
 				value -> config.stunSlamDelay = value
 			)
 		);
+
+		this.list.addHeader(Component.translatable("cpvphelper.feature.spearswap"));
+		this.list.addSmall(
+			toggle("cpvphelper.option.enabled", "cpvphelper.option.spear_swap.enabled.tooltip", config.spearSwapEnabled, value -> config.spearSwapEnabled = value),
+			toggle("cpvphelper.option.spear_swap.hold", "cpvphelper.option.spear_swap.hold.tooltip", config.spearSwapHold, value -> config.spearSwapHold = value),
+			ticks(
+				"cpvphelper.option.spear_swap.repeat_delay",
+				"cpvphelper.option.spear_swap.repeat_delay.tooltip",
+				0,
+				CPvPConfig.SPEAR_REPEAT_DELAY_MAX,
+				config.spearSwapRepeatDelay,
+				value -> config.spearSwapRepeatDelay = value
+			)
+		);
 	}
 
 	@Override
