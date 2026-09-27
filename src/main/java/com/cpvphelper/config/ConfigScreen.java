@@ -65,6 +65,40 @@ public class ConfigScreen extends OptionsSubScreen {
 			),
 			toggle("cpvphelper.option.anchor.explode", "cpvphelper.option.anchor.explode.tooltip", config.anchorExplode, value -> config.anchorExplode = value)
 		);
+
+		this.list.addHeader(Component.translatable("cpvphelper.feature.stunslam"));
+		this.list.addSmall(
+			toggle("cpvphelper.option.enabled", "cpvphelper.option.stun_slam.enabled.tooltip", config.stunSlamEnabled, value -> config.stunSlamEnabled = value),
+			toggle(
+				"cpvphelper.option.stun_slam.only_falling",
+				"cpvphelper.option.stun_slam.only_falling.tooltip",
+				config.stunSlamOnlyFalling,
+				value -> config.stunSlamOnlyFalling = value
+			),
+			toggle("cpvphelper.option.stun_slam.only_shield", "cpvphelper.option.stun_slam.only_shield.tooltip", config.stunSlamOnlyShield, value -> config.stunSlamOnlyShield = value),
+			ticks(
+				"cpvphelper.option.stun_slam.delay",
+				"cpvphelper.option.stun_slam.delay.tooltip",
+				0,
+				CPvPConfig.STUN_SLAM_DELAY_MAX,
+				config.stunSlamDelay,
+				value -> config.stunSlamDelay = value
+			)
+		);
+
+		this.list.addHeader(Component.translatable("cpvphelper.feature.spearswap"));
+		this.list.addSmall(
+			toggle("cpvphelper.option.enabled", "cpvphelper.option.spear_swap.enabled.tooltip", config.spearSwapEnabled, value -> config.spearSwapEnabled = value),
+			toggle("cpvphelper.option.spear_swap.hold", "cpvphelper.option.spear_swap.hold.tooltip", config.spearSwapHold, value -> config.spearSwapHold = value),
+			ticks(
+				"cpvphelper.option.spear_swap.repeat_delay",
+				"cpvphelper.option.spear_swap.repeat_delay.tooltip",
+				0,
+				CPvPConfig.SPEAR_REPEAT_DELAY_MAX,
+				config.spearSwapRepeatDelay,
+				value -> config.spearSwapRepeatDelay = value
+			)
+		);
 	}
 
 	@Override

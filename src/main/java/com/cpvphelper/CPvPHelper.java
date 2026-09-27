@@ -1,6 +1,7 @@
 package com.cpvphelper;
 
 import com.cpvphelper.config.CPvPConfig;
+import com.cpvphelper.feature.SpearSwap;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -19,6 +20,7 @@ public class CPvPHelper implements ClientModInitializer {
 
 	private static KeyMapping toggleAutoTotem;
 	private static KeyMapping toggleAnchorPlace;
+	private static KeyMapping toggleStunSlam;
 
 	@Override
 	public void onInitializeClient() {
@@ -31,6 +33,13 @@ public class CPvPHelper implements ClientModInitializer {
 		toggleAnchorPlace = KeyMappingHelper.registerKeyMapping(
 			new KeyMapping("key.cpvphelper.toggle_anchorplace", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
 		);
+		toggleStunSlam = KeyMappingHelper.registerKeyMapping(
+			new KeyMapping("key.cpvphelper.toggle_stunslam", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
+		);
+		// Handled in handleKeybinds, next to the vanilla attack key. Mouse buttons can be bound too.
+		SpearSwap.init(KeyMappingHelper.registerKeyMapping(
+			new KeyMapping("key.cpvphelper.spear_swap", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
+		));
 
 		ClientTickEvents.END_CLIENT_TICK.register(CPvPHelper::handleToggleKeys);
 		LOGGER.info("CPvPHelper loaded");
@@ -48,6 +57,12 @@ public class CPvPHelper implements ClientModInitializer {
 			config.anchorEnabled = !config.anchorEnabled;
 			CPvPConfig.save();
 			showToggle(mc, "cpvphelper.feature.anchorplace", config.anchorEnabled);
+		}
+
+		while (toggleStunSlam.consumeClick()) {
+			config.stunSlamEnabled = !config.stunSlamEnabled;
+			CPvPConfig.save();
+			showToggle(mc, "cpvphelper.feature.stunslam", config.stunSlamEnabled);
 		}
 	}
 

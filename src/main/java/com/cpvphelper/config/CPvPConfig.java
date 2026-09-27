@@ -17,6 +17,8 @@ public final class CPvPConfig {
 	public static final int TOTEM_DELAY_MAX = 10;
 	public static final int TOTEM_RANDOM_DELAY_MAX = 5;
 	public static final int ANCHOR_DELAY_MAX = 5;
+	public static final int STUN_SLAM_DELAY_MAX = 5;
+	public static final int SPEAR_REPEAT_DELAY_MAX = 10;
 
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 	private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve(CPvPHelper.MOD_ID + ".json");
@@ -47,6 +49,22 @@ public final class CPvPConfig {
 	public int anchorExplodeDelay = 1;
 	public boolean anchorExplode = true;
 	public boolean anchorOnlyOnGround = false;
+
+	// StunSlam
+	public boolean stunSlamEnabled = true;
+	/** Only when the mace hit is a smash attack: falling more than 1.5 blocks and not gliding. */
+	public boolean stunSlamOnlyFalling = true;
+	/** Only when the target is blocking with a shield. */
+	public boolean stunSlamOnlyShield = false;
+	/** Ticks between the axe hit and the mace hit. */
+	public int stunSlamDelay = 0;
+
+	// SpearSwap
+	public boolean spearSwapEnabled = true;
+	/** Keep swapping while the key is held, every time the attack is charged. */
+	public boolean spearSwapHold = true;
+	/** Extra ticks between two swaps while the key is held. */
+	public int spearSwapRepeatDelay = 0;
 
 	public static CPvPConfig get() {
 		return instance;
@@ -85,5 +103,7 @@ public final class CPvPConfig {
 		totemRandomDelay = Mth.clamp(totemRandomDelay, 0, TOTEM_RANDOM_DELAY_MAX);
 		anchorChargeDelay = Mth.clamp(anchorChargeDelay, 0, ANCHOR_DELAY_MAX);
 		anchorExplodeDelay = Mth.clamp(anchorExplodeDelay, 0, ANCHOR_DELAY_MAX);
+		stunSlamDelay = Mth.clamp(stunSlamDelay, 0, STUN_SLAM_DELAY_MAX);
+		spearSwapRepeatDelay = Mth.clamp(spearSwapRepeatDelay, 0, SPEAR_REPEAT_DELAY_MAX);
 	}
 }
