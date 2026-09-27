@@ -2,6 +2,7 @@
 	"cpvphelper.config.title": "CPvPHelper",
 	"cpvphelper.feature.autototem": "AutoTotem",
 	"cpvphelper.feature.anchorplace": "AnchorPlace",
+	"cpvphelper.feature.stunslam": "StunSlam",
 	"cpvphelper.message.toggled": "%s: %s",
 	"cpvphelper.value.ticks": "%s тик.",
 
@@ -32,7 +33,16 @@
 	"cpvphelper.option.anchor.explode": "Взрывать",
 	"cpvphelper.option.anchor.explode.tooltip": "Взрывать якорь мечом. Если выключено, якорь только ставится и заряжается, потом снова выбирается меч.",
 
+	"cpvphelper.option.stun_slam.enabled.tooltip": "ЛКМ топором по существу: после удара топором булава из хотбара бьёт ту же цель, потом снова выбирается топор. Топор сносит щит, удар булавой приходит сразу за ним. Булава с «Плотностью» выбирается первой.",
+	"cpvphelper.option.stun_slam.only_falling": "Только в падении",
+	"cpvphelper.option.stun_slam.only_falling.tooltip": "Только если удар булавой будет сокрушающим: ты падаешь больше 1,5 блока и не летишь на элитрах. Если выключено, за каждым ударом топором по существу следует удар булавой.",
+	"cpvphelper.option.stun_slam.only_shield": "Только по щиту",
+	"cpvphelper.option.stun_slam.only_shield.tooltip": "Только если цель в момент удара топором закрывается щитом.",
+	"cpvphelper.option.stun_slam.delay": "Задержка булавы",
+	"cpvphelper.option.stun_slam.delay.tooltip": "Тики между ударом топором и ударом булавой. 0 = в тот же тик. С задержкой цель должна оставаться под прицелом.",
+
 	"key.category.cpvphelper.main": "CPvPHelper",
 	"key.cpvphelper.toggle_autototem": "Вкл/выкл AutoTotem",
-	"key.cpvphelper.toggle_anchorplace": "Вкл/выкл AnchorPlace"
+	"key.cpvphelper.toggle_anchorplace": "Вкл/выкл AnchorPlace",
+	"key.cpvphelper.toggle_stunslam": "Вкл/выкл StunSlam"
 }

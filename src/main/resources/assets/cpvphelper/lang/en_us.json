@@ -2,6 +2,7 @@
 	"cpvphelper.config.title": "CPvPHelper",
 	"cpvphelper.feature.autototem": "AutoTotem",
 	"cpvphelper.feature.anchorplace": "AnchorPlace",
+	"cpvphelper.feature.stunslam": "StunSlam",
 	"cpvphelper.message.toggled": "%s: %s",
 	"cpvphelper.value.ticks": "%s ticks",
 
@@ -32,7 +33,16 @@
 	"cpvphelper.option.anchor.explode": "Detonate",
 	"cpvphelper.option.anchor.explode.tooltip": "Detonate the anchor with the sword. When off, it is only placed and charged, then the sword is selected again.",
 
+	"cpvphelper.option.stun_slam.enabled.tooltip": "Left click an entity with an axe: after the axe hit the mace from the hotbar hits the same target, then the axe is selected again. The axe knocks out the shield, the mace smash lands right after. A Density mace is picked first.",
+	"cpvphelper.option.stun_slam.only_falling": "Only When Falling",
+	"cpvphelper.option.stun_slam.only_falling.tooltip": "Only when the mace hit is a smash attack: you fall more than 1.5 blocks and are not gliding. Off: every axe hit on an entity is followed by a mace hit.",
+	"cpvphelper.option.stun_slam.only_shield": "Only vs Shield",
+	"cpvphelper.option.stun_slam.only_shield.tooltip": "Only when the target is blocking with a shield at the moment of the axe hit.",
+	"cpvphelper.option.stun_slam.delay": "Mace Delay",
+	"cpvphelper.option.stun_slam.delay.tooltip": "Ticks between the axe hit and the mace hit. 0 = same tick. With a delay the target must still be under the crosshair.",
+
 	"key.category.cpvphelper.main": "CPvPHelper",
 	"key.cpvphelper.toggle_autototem": "Toggle AutoTotem",
-	"key.cpvphelper.toggle_anchorplace": "Toggle AnchorPlace"
+	"key.cpvphelper.toggle_anchorplace": "Toggle AnchorPlace",
+	"key.cpvphelper.toggle_stunslam": "Toggle StunSlam"
 }
