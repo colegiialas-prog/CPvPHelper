@@ -1,5 +1,6 @@
 package com.cpvphelper.mixin;
 
+import com.cpvphelper.config.CPvPConfig;
 import com.cpvphelper.feature.MovementStop;
 import net.minecraft.client.player.ClientInput;
 import net.minecraft.client.player.KeyboardInput;
@@ -13,11 +14,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(KeyboardInput.class)
 public abstract class KeyboardInputMixin extends ClientInput {
 	@Inject(method = "tick", at = @At("TAIL"))
-	private void cpvphelper$releaseKeys(CallbackInfo ci) {
+	private void cpvphelper$adjustKeys(CallbackInfo ci) {
 		if (MovementStop.consumeTick()) {
 			// Same state as with the inventory screen open: every key released, velocity untouched.
 			this.keyPresses = Input.EMPTY;
 			this.moveVector = Vec2.ZERO;
+		} else if (CPvPConfig.get().autoSprintEnabled) {
+			// AutoSprint: the same input as holding the sprint key, so sprint starts again right after a hit.
+			Input keys = this.keyPresses;
+			this.keyPresses = new Input(keys.forward(), keys.backward(), keys.left(), keys.right(), keys.jump(), keys.shift(), true);
 		}
 	}
 }

@@ -99,6 +99,11 @@ public class ConfigScreen extends OptionsSubScreen {
 				value -> config.spearSwapRepeatDelay = value
 			)
 		);
+
+		this.list.addHeader(Component.translatable("cpvphelper.feature.autosprint"));
+		this.list.addSmall(
+			toggle("cpvphelper.option.enabled", "cpvphelper.option.auto_sprint.enabled.tooltip", config.autoSprintEnabled, value -> config.autoSprintEnabled = value)
+		);
 	}
 
 	@Override

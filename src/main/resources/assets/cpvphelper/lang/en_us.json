@@ -4,6 +4,7 @@
 	"cpvphelper.feature.anchorplace": "AnchorPlace",
 	"cpvphelper.feature.stunslam": "StunSlam",
 	"cpvphelper.feature.spearswap": "SpearSwap",
+	"cpvphelper.feature.autosprint": "AutoSprint",
 	"cpvphelper.message.toggled": "%s: %s",
 	"cpvphelper.value.ticks": "%s ticks",
 
@@ -48,9 +49,12 @@
 	"cpvphelper.option.spear_swap.repeat_delay": "Repeat Delay",
 	"cpvphelper.option.spear_swap.repeat_delay.tooltip": "Extra ticks between two jabs while the key is held. 0 = as soon as the attack is charged.",
 
+	"cpvphelper.option.auto_sprint.enabled.tooltip": "Acts as if the sprint key were always held: you sprint whenever you move forward, and after a sprint hit the sprint starts again on the next tick, so the next hit deals sprint knockback too.",
+
 	"key.category.cpvphelper.main": "CPvPHelper",
 	"key.cpvphelper.toggle_autototem": "Toggle AutoTotem",
 	"key.cpvphelper.toggle_anchorplace": "Toggle AnchorPlace",
 	"key.cpvphelper.toggle_stunslam": "Toggle StunSlam",
+	"key.cpvphelper.toggle_autosprint": "Toggle AutoSprint",
 	"key.cpvphelper.spear_swap": "Spear Swap"
 }

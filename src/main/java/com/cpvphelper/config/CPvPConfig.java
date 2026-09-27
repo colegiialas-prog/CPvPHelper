@@ -66,6 +66,10 @@ public final class CPvPConfig {
 	/** Extra ticks between two swaps while the key is held. */
 	public int spearSwapRepeatDelay = 0;
 
+	// AutoSprint
+	/** Acts as if the sprint key were always held. */
+	public boolean autoSprintEnabled = true;
+
 	public static CPvPConfig get() {
 		return instance;
 	}

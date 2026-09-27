@@ -4,6 +4,7 @@
 	"cpvphelper.feature.anchorplace": "AnchorPlace",
 	"cpvphelper.feature.stunslam": "StunSlam",
 	"cpvphelper.feature.spearswap": "SpearSwap",
+	"cpvphelper.feature.autosprint": "AutoSprint",
 	"cpvphelper.message.toggled": "%s: %s",
 	"cpvphelper.value.ticks": "%s тик.",
 
@@ -48,9 +49,12 @@
 	"cpvphelper.option.spear_swap.repeat_delay": "Задержка повтора",
 	"cpvphelper.option.spear_swap.repeat_delay.tooltip": "Дополнительные тики между уколами при зажатой клавише. 0 = сразу, как только атака заряжена.",
 
+	"cpvphelper.option.auto_sprint.enabled.tooltip": "Как будто клавиша бега всегда зажата: ты бежишь, как только идёшь вперёд, а после удара с разбега бег включается снова уже на следующем тике, поэтому следующий удар тоже с отбрасыванием от бега.",
+
 	"key.category.cpvphelper.main": "CPvPHelper",
 	"key.cpvphelper.toggle_autototem": "Вкл/выкл AutoTotem",
 	"key.cpvphelper.toggle_anchorplace": "Вкл/выкл AnchorPlace",
 	"key.cpvphelper.toggle_stunslam": "Вкл/выкл StunSlam",
+	"key.cpvphelper.toggle_autosprint": "Вкл/выкл AutoSprint",
 	"key.cpvphelper.spear_swap": "Спир-свап"
 }

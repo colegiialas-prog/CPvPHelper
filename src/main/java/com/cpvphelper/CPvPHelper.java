@@ -21,6 +21,7 @@ public class CPvPHelper implements ClientModInitializer {
 	private static KeyMapping toggleAutoTotem;
 	private static KeyMapping toggleAnchorPlace;
 	private static KeyMapping toggleStunSlam;
+	private static KeyMapping toggleAutoSprint;
 
 	@Override
 	public void onInitializeClient() {
@@ -35,6 +36,9 @@ public class CPvPHelper implements ClientModInitializer {
 		);
 		toggleStunSlam = KeyMappingHelper.registerKeyMapping(
 			new KeyMapping("key.cpvphelper.toggle_stunslam", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
+		);
+		toggleAutoSprint = KeyMappingHelper.registerKeyMapping(
+			new KeyMapping("key.cpvphelper.toggle_autosprint", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
 		);
 		// Handled in handleKeybinds, next to the vanilla attack key. Mouse buttons can be bound too.
 		SpearSwap.init(KeyMappingHelper.registerKeyMapping(
@@ -63,6 +67,12 @@ public class CPvPHelper implements ClientModInitializer {
 			config.stunSlamEnabled = !config.stunSlamEnabled;
 			CPvPConfig.save();
 			showToggle(mc, "cpvphelper.feature.stunslam", config.stunSlamEnabled);
+		}
+
+		while (toggleAutoSprint.consumeClick()) {
+			config.autoSprintEnabled = !config.autoSprintEnabled;
+			CPvPConfig.save();
+			showToggle(mc, "cpvphelper.feature.autosprint", config.autoSprintEnabled);
 		}
 	}
 
