@@ -5,11 +5,9 @@
 	"cpvphelper.feature.stunslam": "StunSlam",
 	"cpvphelper.feature.spearswap": "SpearSwap",
 	"cpvphelper.feature.triggerbot": "TriggerBot",
-	"cpvphelper.message.toggled": "%s: %s",
 	"cpvphelper.value.ticks": "%s тик.",
 	"cpvphelper.value.ms": "%s мс",
 	"cpvphelper.value.percent": "%s%%",
-
 	"cpvphelper.option.enabled": "Включено",
 	"cpvphelper.option.totem.enabled.tooltip": "Кладёт тотем во вторую руку, как только она опустела.",
 	"cpvphelper.option.totem.replace": "Заменять предметы",
@@ -26,7 +24,6 @@
 	"cpvphelper.option.totem.delay.tooltip": "Задержка реакции после того, как вторая рука опустела. 0 = мгновенно.",
 	"cpvphelper.option.totem.random_delay": "Случайная задержка",
 	"cpvphelper.option.totem.random_delay.tooltip": "Добавляет к задержке случайно от 0 до N тиков.",
-
 	"cpvphelper.option.anchor.enabled.tooltip": "ПКМ мечом по блоку: ставит якорь возрождения, заряжает его светокамнем, возвращается на меч и взрывает. Якорь и светокамень должны лежать в хотбаре.",
 	"cpvphelper.option.anchor.only_ground": "Только на земле",
 	"cpvphelper.option.anchor.only_ground.tooltip": "Работает, только когда ты стоишь на земле.",
@@ -36,7 +33,6 @@
 	"cpvphelper.option.anchor.explode_delay.tooltip": "Тики между зарядкой и взрывом. 0 = в тот же тик.",
 	"cpvphelper.option.anchor.explode": "Взрывать",
 	"cpvphelper.option.anchor.explode.tooltip": "Взрывать якорь мечом. Если выключено, якорь только ставится и заряжается, потом снова выбирается меч.",
-
 	"cpvphelper.option.stun_slam.enabled.tooltip": "ЛКМ топором по существу: после удара топором булава из хотбара бьёт ту же цель, потом снова выбирается топор. Топор сносит щит, удар булавой приходит сразу за ним. Булава с «Плотностью» выбирается первой.",
 	"cpvphelper.option.stun_slam.only_falling": "Только в падении",
 	"cpvphelper.option.stun_slam.only_falling.tooltip": "Только если удар булавой будет сокрушающим: ты падаешь больше 1,5 блока и не летишь на элитрах. Если выключено, за каждым ударом топором по существу следует удар булавой.",
@@ -44,13 +40,11 @@
 	"cpvphelper.option.stun_slam.only_shield.tooltip": "Только если цель в момент удара топором закрывается щитом.",
 	"cpvphelper.option.stun_slam.delay": "Задержка булавы",
 	"cpvphelper.option.stun_slam.delay.tooltip": "Тики между ударом топором и ударом булавой. 0 = в тот же тик. С задержкой цель должна оставаться под прицелом.",
-
-	"cpvphelper.option.spear_swap.enabled.tooltip": "Attribute swap по клавише «Спир-свап» (Управление → CPvPHelper, можно и кнопку мыши): выбирает копьё в хотбаре, делает укол и в тот же тик возвращается на твой предмет. Работает с любым предметом в руке. Копьё с «Выпадом» толкает тебя вперёд, первым берётся копьё с самым высоким уровнем «Выпада».",
+	"cpvphelper.option.spear_swap.enabled.tooltip": "Attribute swap по своей клавише (выбирается ниже, можно кнопку мыши): выбирает копьё в хотбаре, делает укол и в тот же тик возвращается на твой предмет. Работает с любым предметом в руке. Копьё с «Выпадом» толкает тебя вперёд, первым берётся копьё с самым высоким уровнем «Выпада».",
 	"cpvphelper.option.spear_swap.hold": "Повтор при удержании",
 	"cpvphelper.option.spear_swap.hold.tooltip": "Пока клавиша зажата, укол повторяется каждый раз, когда атака заряжена. Если выключено, один укол на одно нажатие.",
 	"cpvphelper.option.spear_swap.repeat_delay": "Задержка повтора",
 	"cpvphelper.option.spear_swap.repeat_delay.tooltip": "Дополнительные тики между уколами при зажатой клавише. 0 = сразу, как только атака заряжена.",
-
 	"cpvphelper.option.trigger.enabled.tooltip": "Бьёт существо под прицелом в первый же кадр, когда удар готов, а не на следующем тике. Каждый удар — обычный ЛКМ со всеми ванильными проверками клика. Цель за блоком не бьётся.",
 	"cpvphelper.option.trigger.players_only": "Только игроки",
 	"cpvphelper.option.trigger.players_only.tooltip": "Бьёт только игроков. Если выключено, бьёт и мобов.",
@@ -66,21 +60,16 @@
 	"cpvphelper.option.trigger.crit_wait.tooltip": "В прыжке готовый удар ждёт падения, чтобы стать критом, но не дольше этого числа тиков. Не ждёт, если сервер видит твой спринт: удар со спринтом не бывает критом. 0 = бить сразу, в том числе на взлёте.",
 	"cpvphelper.option.trigger.sprint_wait": "Ожидание спринта",
 	"cpvphelper.option.trigger.sprint_wait.tooltip": "Во время w-tap или s-tap готовый удар ждёт, пока спринт снова дойдёт до сервера, но не дольше этого числа тиков. Тогда удар отбрасывает как удар со спринтом. 0 = не ждать.",
-
-	"key.category.cpvphelper.main": "CPvPHelper",
-	"key.cpvphelper.toggle_autototem": "Вкл/выкл AutoTotem",
-	"key.cpvphelper.toggle_anchorplace": "Вкл/выкл AnchorPlace",
-	"key.cpvphelper.toggle_stunslam": "Вкл/выкл StunSlam",
-	"key.cpvphelper.toggle_triggerbot": "Вкл/выкл TriggerBot",
-	"key.cpvphelper.spear_swap": "Спир-свап",
 	"cpvphelper.feature.jumpreset": "JumpReset",
-	"cpvphelper.option.trigger.hold_key": "Только при зажатой клавише",
-	"cpvphelper.option.trigger.hold_key.tooltip": "Бьёт только пока зажата клавиша «TriggerBot: удержание» (Управление → CPvPHelper, можно и кнопку мыши).",
+	"cpvphelper.option.trigger.hold_key": "Клавиша удержания",
+	"cpvphelper.option.trigger.hold_key.tooltip": "Бьёт только пока зажата эта клавиша или кнопка мыши. Нет = работает всегда.",
 	"cpvphelper.option.jump_reset.enabled.tooltip": "Когда удар отталкивает тебя, пока ты стоишь на земле, прыгает в тот же тик, когда применяется отдача. Идеальный тайминг джамп ресета.",
 	"cpvphelper.option.jump_reset.while_using": "При использовании предметов",
 	"cpvphelper.option.jump_reset.while_using.tooltip": "Делать джамп ресет и когда ты ешь или держишь щит.",
 	"cpvphelper.option.jump_reset.chance": "Шанс",
 	"cpvphelper.option.jump_reset.chance.tooltip": "Шанс, что на отдачу будет сделан джамп ресет.",
-	"key.cpvphelper.trigger_hold": "TriggerBot: удержание",
-	"key.cpvphelper.toggle_jumpreset": "Вкл/выкл JumpReset"
+	"cpvphelper.bind.none": "Нет",
+	"cpvphelper.bind.mouse": "Мышь %s",
+	"cpvphelper.option.spear_swap.bind": "Клавиша",
+	"cpvphelper.option.spear_swap.bind.tooltip": "Клавиша или кнопка мыши для спир-свапа."
 }

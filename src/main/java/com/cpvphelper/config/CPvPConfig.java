@@ -1,6 +1,7 @@
 package com.cpvphelper.config;
 
 import com.cpvphelper.CPvPHelper;
+import com.cpvphelper.input.Binds;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
@@ -68,6 +69,8 @@ public final class CPvPConfig {
 	public boolean spearSwapHold = true;
 	/** Extra ticks between two swaps while the key is held. */
 	public int spearSwapRepeatDelay = 0;
+	/** The swap bind, see Binds. */
+	public int spearSwapBind = 0;
 
 	// TriggerBot
 	public boolean triggerBotEnabled = false;
@@ -84,8 +87,8 @@ public final class CPvPConfig {
 	public int triggerCritWait = 8;
 	/** Ticks a ready hit may wait for the sprint to come back during a w-tap or s-tap. */
 	public int triggerSprintWait = 3;
-	/** Only attack while the TriggerBot hold key is down. */
-	public boolean triggerHoldKey = false;
+	/** Only attack while this bind is held; Binds.NONE = always. */
+	public int triggerHoldBind = 0;
 
 	// JumpReset
 	public boolean jumpResetEnabled = false;
@@ -138,6 +141,8 @@ public final class CPvPConfig {
 		triggerDelayMax = Mth.clamp(triggerDelayMax, 0, TRIGGER_DELAY_MAX);
 		triggerCritWait = Mth.clamp(triggerCritWait, 0, TRIGGER_WAIT_MAX);
 		triggerSprintWait = Mth.clamp(triggerSprintWait, 0, TRIGGER_WAIT_MAX);
+		triggerHoldBind = Binds.CHOICES.contains(triggerHoldBind) ? triggerHoldBind : Binds.NONE;
+		spearSwapBind = Binds.CHOICES.contains(spearSwapBind) ? spearSwapBind : Binds.NONE;
 		jumpResetChance = Mth.clamp(jumpResetChance, 0, 100);
 	}
 }
