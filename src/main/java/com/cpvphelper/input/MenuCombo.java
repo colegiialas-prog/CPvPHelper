@@ -25,7 +25,7 @@ public final class MenuCombo {
 		}
 
 		if (mc.gui.screen() == null)
-			mc.setScreen(new ConfigScreen(null));
+			mc.gui.setScreen(new ConfigScreen(null));
 	}
 
 	private static boolean isComboDown(Minecraft mc) {
