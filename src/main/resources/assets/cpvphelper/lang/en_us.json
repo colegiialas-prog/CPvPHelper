@@ -75,7 +75,7 @@
 	"key.cpvphelper.spear_swap": "Spear Swap",
 	"cpvphelper.feature.jumpreset": "JumpReset",
 	"cpvphelper.option.trigger.hold_key": "Only While Key Held",
-	"cpvphelper.option.trigger.hold_key.tooltip": "Attacks only while the "TriggerBot hold" key is down (Controls > CPvPHelper, mouse buttons work too).",
+	"cpvphelper.option.trigger.hold_key.tooltip": "Attacks only while the TriggerBot hold key is down (Controls > CPvPHelper, mouse buttons work too).",
 	"cpvphelper.option.jump_reset.enabled.tooltip": "When a hit knocks you back while you stand on the ground, jumps in the very tick the knockback is applied. Perfect jump reset timing.",
 	"cpvphelper.option.jump_reset.while_using": "While Using Items",
 	"cpvphelper.option.jump_reset.while_using.tooltip": "Also jump reset while eating or blocking.",
