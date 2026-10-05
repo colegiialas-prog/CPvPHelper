@@ -1,5 +1,7 @@
 package com.cpvphelper.config;
 
+import com.cpvphelper.input.Binds;
+import com.mojang.serialization.Codec;
 import java.util.function.Consumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
@@ -89,6 +91,7 @@ public class ConfigScreen extends OptionsSubScreen {
 		this.list.addHeader(Component.translatable("cpvphelper.feature.spearswap"));
 		this.list.addSmall(
 			toggle("cpvphelper.option.enabled", "cpvphelper.option.spear_swap.enabled.tooltip", config.spearSwapEnabled, value -> config.spearSwapEnabled = value),
+			bind("cpvphelper.option.spear_swap.bind", "cpvphelper.option.spear_swap.bind.tooltip", config.spearSwapBind, value -> config.spearSwapBind = value),
 			toggle("cpvphelper.option.spear_swap.hold", "cpvphelper.option.spear_swap.hold.tooltip", config.spearSwapHold, value -> config.spearSwapHold = value),
 			ticks(
 				"cpvphelper.option.spear_swap.repeat_delay",
@@ -103,6 +106,7 @@ public class ConfigScreen extends OptionsSubScreen {
 		this.list.addHeader(Component.translatable("cpvphelper.feature.triggerbot"));
 		this.list.addSmall(
 			toggle("cpvphelper.option.enabled", "cpvphelper.option.trigger.enabled.tooltip", config.triggerBotEnabled, value -> config.triggerBotEnabled = value),
+			bind("cpvphelper.option.trigger.hold_key", "cpvphelper.option.trigger.hold_key.tooltip", config.triggerHoldBind, value -> config.triggerHoldBind = value),
 			toggle("cpvphelper.option.trigger.players_only", "cpvphelper.option.trigger.players_only.tooltip", config.triggerPlayersOnly, value -> config.triggerPlayersOnly = value),
 			toggle("cpvphelper.option.trigger.weapon_only", "cpvphelper.option.trigger.weapon_only.tooltip", config.triggerWeaponOnly, value -> config.triggerWeaponOnly = value),
 			slider(
@@ -149,6 +153,13 @@ public class ConfigScreen extends OptionsSubScreen {
 				value -> config.triggerSprintWait = value
 			)
 		);
+
+		this.list.addHeader(Component.translatable("cpvphelper.feature.jumpreset"));
+		this.list.addSmall(
+			toggle("cpvphelper.option.enabled", "cpvphelper.option.jump_reset.enabled.tooltip", config.jumpResetEnabled, value -> config.jumpResetEnabled = value),
+			toggle("cpvphelper.option.jump_reset.while_using", "cpvphelper.option.jump_reset.while_using.tooltip", config.jumpResetWhileUsing, value -> config.jumpResetWhileUsing = value),
+			slider("cpvphelper.option.jump_reset.chance", "cpvphelper.option.jump_reset.chance.tooltip", "cpvphelper.value.percent", 0, 100, config.jumpResetChance, value -> config.jumpResetChance = value)
+		);
 	}
 
 	@Override
@@ -159,6 +170,17 @@ public class ConfigScreen extends OptionsSubScreen {
 
 	private static OptionInstance<Boolean> toggle(String key, String tooltipKey, boolean value, Consumer<Boolean> setter) {
 		return OptionInstance.createBoolean(key, OptionInstance.cachedConstantTooltip(Component.translatable(tooltipKey)), value, setter::accept);
+	}
+
+	private static OptionInstance<Integer> bind(String key, String tooltipKey, int value, Consumer<Integer> setter) {
+		return new OptionInstance<>(
+			key,
+			OptionInstance.cachedConstantTooltip(Component.translatable(tooltipKey)),
+			(caption, bind) -> Options.genericValueLabel(caption, Binds.name(bind)),
+			new OptionInstance.Enum<>(Binds.CHOICES, Codec.INT),
+			value,
+			setter::accept
+		);
 	}
 
 	private static OptionInstance<Integer> ticks(String key, String tooltipKey, int min, int max, int value, Consumer<Integer> setter) {

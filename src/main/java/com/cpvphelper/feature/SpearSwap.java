@@ -1,10 +1,10 @@
 package com.cpvphelper.feature;
 
 import com.cpvphelper.config.CPvPConfig;
+import com.cpvphelper.input.Binds;
 import com.cpvphelper.mixin.MinecraftAccessor;
 import com.cpvphelper.mixin.MultiPlayerGameModeAccessor;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.Holder;
@@ -25,35 +25,26 @@ import net.minecraft.world.item.enchantment.Enchantments;
  * hands free, not using an item and the attack charged as the spear requires it.
  */
 public final class SpearSwap {
-	private static KeyMapping key;
+	private static boolean wasDown;
 	private static long nextTick;
 
 	private SpearSwap() {
 	}
 
-	public static void init(KeyMapping mapping) {
-		key = mapping;
-	}
-
 	/** Start of handleKeybinds, after the other features. */
 	public static void onKeybinds(Minecraft mc) {
-		if (key == null) {
-			return;
-		}
-
-		boolean clicked = false;
-		while (key.consumeClick()) {
-			clicked = true;
-		}
-
 		CPvPConfig config = CPvPConfig.get();
+		boolean down = Binds.isDown(mc, config.spearSwapBind);
+		boolean clicked = down && !wasDown;
+		wasDown = down;
+
 		LocalPlayer player = mc.player;
 		if (!config.spearSwapEnabled || player == null || mc.level == null || mc.gameMode == null) {
 			return;
 		}
 
 		long now = ClientTicks.get();
-		boolean held = config.spearSwapHold && key.isDown() && now >= nextTick;
+		boolean held = config.spearSwapHold && down && now >= nextTick;
 		if (!clicked && !held) {
 			return;
 		}

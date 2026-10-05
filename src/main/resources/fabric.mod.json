@@ -3,7 +3,7 @@
 	"id": "cpvphelper",
 	"version": "${version}",
 	"name": "CPvPHelper",
-	"description": "Crystal PvP helper: AutoTotem, AnchorPlace, StunSlam, SpearSwap and TriggerBot. Configurable through Mod Menu.",
+	"description": "Crystal PvP helper: AutoTotem, AnchorPlace, StunSlam, SpearSwap, TriggerBot and JumpReset. Settings open with Ctrl+Shift+X.",
 	"authors": [
 		"colegiialas-prog"
 	],
@@ -13,9 +13,6 @@
 	"entrypoints": {
 		"client": [
 			"com.cpvphelper.CPvPHelper"
-		],
-		"modmenu": [
-			"com.cpvphelper.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
@@ -26,8 +23,5 @@
 		"minecraft": "~26.2",
 		"java": ">=25",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"modmenu": "*"
 	}
 }

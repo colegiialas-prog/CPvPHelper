@@ -5,11 +5,9 @@
 	"cpvphelper.feature.stunslam": "StunSlam",
 	"cpvphelper.feature.spearswap": "SpearSwap",
 	"cpvphelper.feature.triggerbot": "TriggerBot",
-	"cpvphelper.message.toggled": "%s: %s",
 	"cpvphelper.value.ticks": "%s ticks",
 	"cpvphelper.value.ms": "%s ms",
 	"cpvphelper.value.percent": "%s%%",
-
 	"cpvphelper.option.enabled": "Enabled",
 	"cpvphelper.option.totem.enabled.tooltip": "Puts a totem into the offhand as soon as it is empty.",
 	"cpvphelper.option.totem.replace": "Replace Offhand Items",
@@ -26,7 +24,6 @@
 	"cpvphelper.option.totem.delay.tooltip": "Reaction delay after the offhand becomes empty. 0 = instant.",
 	"cpvphelper.option.totem.random_delay": "Random Delay",
 	"cpvphelper.option.totem.random_delay.tooltip": "Adds 0 to N random ticks on top of the delay.",
-
 	"cpvphelper.option.anchor.enabled.tooltip": "Right click a block with a sword: places a respawn anchor, charges it with glowstone, switches back to the sword and detonates it. Anchor and glowstone must be in the hotbar.",
 	"cpvphelper.option.anchor.only_ground": "Only on Ground",
 	"cpvphelper.option.anchor.only_ground.tooltip": "Only works while you are standing on the ground.",
@@ -36,7 +33,6 @@
 	"cpvphelper.option.anchor.explode_delay.tooltip": "Ticks between charging the anchor and detonating it. 0 = same tick.",
 	"cpvphelper.option.anchor.explode": "Detonate",
 	"cpvphelper.option.anchor.explode.tooltip": "Detonate the anchor with the sword. When off, it is only placed and charged, then the sword is selected again.",
-
 	"cpvphelper.option.stun_slam.enabled.tooltip": "Left click an entity with an axe: after the axe hit the mace from the hotbar hits the same target, then the axe is selected again. The axe knocks out the shield, the mace smash lands right after. A Density mace is picked first.",
 	"cpvphelper.option.stun_slam.only_falling": "Only When Falling",
 	"cpvphelper.option.stun_slam.only_falling.tooltip": "Only when the mace hit is a smash attack: you fall more than 1.5 blocks and are not gliding. Off: every axe hit on an entity is followed by a mace hit.",
@@ -44,13 +40,11 @@
 	"cpvphelper.option.stun_slam.only_shield.tooltip": "Only when the target is blocking with a shield at the moment of the axe hit.",
 	"cpvphelper.option.stun_slam.delay": "Mace Delay",
 	"cpvphelper.option.stun_slam.delay.tooltip": "Ticks between the axe hit and the mace hit. 0 = same tick. With a delay the target must still be under the crosshair.",
-
-	"cpvphelper.option.spear_swap.enabled.tooltip": "Attribute swap on the Spear Swap key (Controls > CPvPHelper, mouse buttons work too): selects the hotbar spear, jabs, and selects your item again in the same tick. Works with any held item. A Lunge spear pushes you forward; the highest Lunge level is picked first.",
+	"cpvphelper.option.spear_swap.enabled.tooltip": "Attribute swap on its bind (set below, mouse buttons work too): selects the hotbar spear, jabs, and selects your item again in the same tick. Works with any held item. A Lunge spear pushes you forward; the highest Lunge level is picked first.",
 	"cpvphelper.option.spear_swap.hold": "Repeat While Held",
 	"cpvphelper.option.spear_swap.hold.tooltip": "Holding the key keeps jabbing every time the attack is charged. Off: one jab per key press.",
 	"cpvphelper.option.spear_swap.repeat_delay": "Repeat Delay",
 	"cpvphelper.option.spear_swap.repeat_delay.tooltip": "Extra ticks between two jabs while the key is held. 0 = as soon as the attack is charged.",
-
 	"cpvphelper.option.trigger.enabled.tooltip": "Attacks the entity under the crosshair on the first frame the hit is ready, not on the next tick. Every hit is a regular left click with all vanilla click checks; blocks in front of the target hide it.",
 	"cpvphelper.option.trigger.players_only": "Players Only",
 	"cpvphelper.option.trigger.players_only.tooltip": "Only attacks players. Off: mobs are attacked as well.",
@@ -66,11 +60,16 @@
 	"cpvphelper.option.trigger.crit_wait.tooltip": "In a jump a ready hit waits for the fall that makes it critical, at most this many ticks. Not when the server sees you sprinting: a sprint hit is never critical. 0 = hit right away, also on the way up.",
 	"cpvphelper.option.trigger.sprint_wait": "Sprint Wait",
 	"cpvphelper.option.trigger.sprint_wait.tooltip": "During a w-tap or s-tap a ready hit waits until the sprint reaches the server again, at most this many ticks, so the hit knocks back like a sprint hit. 0 = never wait.",
-
-	"key.category.cpvphelper.main": "CPvPHelper",
-	"key.cpvphelper.toggle_autototem": "Toggle AutoTotem",
-	"key.cpvphelper.toggle_anchorplace": "Toggle AnchorPlace",
-	"key.cpvphelper.toggle_stunslam": "Toggle StunSlam",
-	"key.cpvphelper.toggle_triggerbot": "Toggle TriggerBot",
-	"key.cpvphelper.spear_swap": "Spear Swap"
+	"cpvphelper.feature.jumpreset": "JumpReset",
+	"cpvphelper.option.trigger.hold_key": "Hold Bind",
+	"cpvphelper.option.trigger.hold_key.tooltip": "Attacks only while this key or mouse button is held. None = always active.",
+	"cpvphelper.option.jump_reset.enabled.tooltip": "When a hit knocks you back while you stand on the ground, jumps in the very tick the knockback is applied. Perfect jump reset timing.",
+	"cpvphelper.option.jump_reset.while_using": "While Using Items",
+	"cpvphelper.option.jump_reset.while_using.tooltip": "Also jump reset while eating or blocking.",
+	"cpvphelper.option.jump_reset.chance": "Chance",
+	"cpvphelper.option.jump_reset.chance.tooltip": "Chance that a knockback gets a jump reset.",
+	"cpvphelper.bind.none": "None",
+	"cpvphelper.bind.mouse": "Mouse %s",
+	"cpvphelper.option.spear_swap.bind": "Bind",
+	"cpvphelper.option.spear_swap.bind.tooltip": "Key or mouse button for the spear swap."
 }

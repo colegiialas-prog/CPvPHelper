@@ -3,6 +3,7 @@
 	"package": "com.cpvphelper.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
+		"ClientPacketListenerMixin",
 		"KeyboardInputMixin",
 		"MinecraftAccessor",
 		"MinecraftMixin",

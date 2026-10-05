@@ -4,6 +4,7 @@ import com.cpvphelper.combat.CriticalHit;
 import com.cpvphelper.combat.CrosshairTarget;
 import com.cpvphelper.combat.SprintState;
 import com.cpvphelper.config.CPvPConfig;
+import com.cpvphelper.input.Binds;
 import com.cpvphelper.mixin.MinecraftAccessor;
 import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.client.Minecraft;
@@ -86,6 +87,9 @@ public final class TriggerBot {
 			return false;
 
 		if (!player.isAlive() || player.isSpectator() || player.isUsingItem() || player.isHandsBusy() || mc.gameMode.isDestroying())
+			return false;
+
+		if (config.triggerHoldBind != Binds.NONE && !Binds.isDown(mc, config.triggerHoldBind))
 			return false;
 
 		if (AnchorPlace.isActive() || StunSlam.isPending() || ((MinecraftAccessor) mc).cpvphelper$getMissTime() > 0)
