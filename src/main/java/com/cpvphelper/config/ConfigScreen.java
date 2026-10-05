@@ -99,6 +99,56 @@ public class ConfigScreen extends OptionsSubScreen {
 				value -> config.spearSwapRepeatDelay = value
 			)
 		);
+
+		this.list.addHeader(Component.translatable("cpvphelper.feature.triggerbot"));
+		this.list.addSmall(
+			toggle("cpvphelper.option.enabled", "cpvphelper.option.trigger.enabled.tooltip", config.triggerBotEnabled, value -> config.triggerBotEnabled = value),
+			toggle("cpvphelper.option.trigger.players_only", "cpvphelper.option.trigger.players_only.tooltip", config.triggerPlayersOnly, value -> config.triggerPlayersOnly = value),
+			toggle("cpvphelper.option.trigger.weapon_only", "cpvphelper.option.trigger.weapon_only.tooltip", config.triggerWeaponOnly, value -> config.triggerWeaponOnly = value),
+			slider(
+				"cpvphelper.option.trigger.charge",
+				"cpvphelper.option.trigger.charge.tooltip",
+				"cpvphelper.value.percent",
+				CPvPConfig.TRIGGER_CHARGE_MIN,
+				100,
+				config.triggerCharge,
+				value -> config.triggerCharge = value
+			),
+			slider(
+				"cpvphelper.option.trigger.delay_min",
+				"cpvphelper.option.trigger.delay_min.tooltip",
+				"cpvphelper.value.ms",
+				0,
+				CPvPConfig.TRIGGER_DELAY_MAX,
+				config.triggerDelayMin,
+				value -> config.triggerDelayMin = value
+			),
+			slider(
+				"cpvphelper.option.trigger.delay_max",
+				"cpvphelper.option.trigger.delay_max.tooltip",
+				"cpvphelper.value.ms",
+				0,
+				CPvPConfig.TRIGGER_DELAY_MAX,
+				config.triggerDelayMax,
+				value -> config.triggerDelayMax = value
+			),
+			ticks(
+				"cpvphelper.option.trigger.crit_wait",
+				"cpvphelper.option.trigger.crit_wait.tooltip",
+				0,
+				CPvPConfig.TRIGGER_WAIT_MAX,
+				config.triggerCritWait,
+				value -> config.triggerCritWait = value
+			),
+			ticks(
+				"cpvphelper.option.trigger.sprint_wait",
+				"cpvphelper.option.trigger.sprint_wait.tooltip",
+				0,
+				CPvPConfig.TRIGGER_WAIT_MAX,
+				config.triggerSprintWait,
+				value -> config.triggerSprintWait = value
+			)
+		);
 	}
 
 	@Override
@@ -112,10 +162,14 @@ public class ConfigScreen extends OptionsSubScreen {
 	}
 
 	private static OptionInstance<Integer> ticks(String key, String tooltipKey, int min, int max, int value, Consumer<Integer> setter) {
+		return slider(key, tooltipKey, "cpvphelper.value.ticks", min, max, value, setter);
+	}
+
+	private static OptionInstance<Integer> slider(String key, String tooltipKey, String valueKey, int min, int max, int value, Consumer<Integer> setter) {
 		return new OptionInstance<>(
 			key,
 			OptionInstance.cachedConstantTooltip(Component.translatable(tooltipKey)),
-			(caption, ticks) -> Options.genericValueLabel(caption, Component.translatable("cpvphelper.value.ticks", ticks)),
+			(caption, number) -> Options.genericValueLabel(caption, Component.translatable(valueKey, number)),
 			new OptionInstance.IntRange(min, max),
 			value,
 			setter::accept

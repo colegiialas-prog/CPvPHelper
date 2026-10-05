@@ -4,8 +4,11 @@
 	"cpvphelper.feature.anchorplace": "AnchorPlace",
 	"cpvphelper.feature.stunslam": "StunSlam",
 	"cpvphelper.feature.spearswap": "SpearSwap",
+	"cpvphelper.feature.triggerbot": "TriggerBot",
 	"cpvphelper.message.toggled": "%s: %s",
 	"cpvphelper.value.ticks": "%s тик.",
+	"cpvphelper.value.ms": "%s мс",
+	"cpvphelper.value.percent": "%s%%",
 
 	"cpvphelper.option.enabled": "Включено",
 	"cpvphelper.option.totem.enabled.tooltip": "Кладёт тотем во вторую руку, как только она опустела.",
@@ -48,9 +51,26 @@
 	"cpvphelper.option.spear_swap.repeat_delay": "Задержка повтора",
 	"cpvphelper.option.spear_swap.repeat_delay.tooltip": "Дополнительные тики между уколами при зажатой клавише. 0 = сразу, как только атака заряжена.",
 
+	"cpvphelper.option.trigger.enabled.tooltip": "Бьёт существо под прицелом в первый же кадр, когда удар готов, а не на следующем тике. Каждый удар — обычный ЛКМ со всеми ванильными проверками клика. Цель за блоком не бьётся.",
+	"cpvphelper.option.trigger.players_only": "Только игроки",
+	"cpvphelper.option.trigger.players_only.tooltip": "Бьёт только игроков. Если выключено, бьёт и мобов.",
+	"cpvphelper.option.trigger.weapon_only": "Только с оружием",
+	"cpvphelper.option.trigger.weapon_only.tooltip": "Только с мечом, топором, булавой, копьём или трезубцем в основной руке.",
+	"cpvphelper.option.trigger.charge": "Заряд атаки",
+	"cpvphelper.option.trigger.charge.tooltip": "Минимальный заряд атаки для удара. Каждый удар выбирает свой порог случайно между этим значением и 100%. Для крита нужно больше 90%.",
+	"cpvphelper.option.trigger.delay_min": "Мин. реакция",
+	"cpvphelper.option.trigger.delay_min.tooltip": "Самая короткая задержка между готовностью удара и ударом. Каждый удар берёт случайную задержку между мин. и макс., значения ближе к середине выпадают чаще.",
+	"cpvphelper.option.trigger.delay_max": "Макс. реакция",
+	"cpvphelper.option.trigger.delay_max.tooltip": "Самая длинная задержка между готовностью удара и ударом. Мин. и макс. по 0 = в тот же кадр.",
+	"cpvphelper.option.trigger.crit_wait": "Ожидание крита",
+	"cpvphelper.option.trigger.crit_wait.tooltip": "В прыжке готовый удар ждёт падения, чтобы стать критом, но не дольше этого числа тиков. Не ждёт, если сервер видит твой спринт: удар со спринтом не бывает критом. 0 = бить сразу, в том числе на взлёте.",
+	"cpvphelper.option.trigger.sprint_wait": "Ожидание спринта",
+	"cpvphelper.option.trigger.sprint_wait.tooltip": "Во время w-tap или s-tap готовый удар ждёт, пока спринт снова дойдёт до сервера, но не дольше этого числа тиков. Тогда удар отбрасывает как удар со спринтом. 0 = не ждать.",
+
 	"key.category.cpvphelper.main": "CPvPHelper",
 	"key.cpvphelper.toggle_autototem": "Вкл/выкл AutoTotem",
 	"key.cpvphelper.toggle_anchorplace": "Вкл/выкл AnchorPlace",
 	"key.cpvphelper.toggle_stunslam": "Вкл/выкл StunSlam",
+	"key.cpvphelper.toggle_triggerbot": "Вкл/выкл TriggerBot",
 	"key.cpvphelper.spear_swap": "Спир-свап"
 }

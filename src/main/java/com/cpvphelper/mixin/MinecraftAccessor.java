@@ -10,6 +10,9 @@ public interface MinecraftAccessor {
 	@Invoker("startUseItem")
 	void cpvphelper$startUseItem();
 
+	@Invoker("startAttack")
+	boolean cpvphelper$startAttack();
+
 	@Accessor("missTime")
 	int cpvphelper$getMissTime();
 }

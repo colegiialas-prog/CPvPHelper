@@ -19,6 +19,9 @@ public final class CPvPConfig {
 	public static final int ANCHOR_DELAY_MAX = 5;
 	public static final int STUN_SLAM_DELAY_MAX = 5;
 	public static final int SPEAR_REPEAT_DELAY_MAX = 10;
+	public static final int TRIGGER_CHARGE_MIN = 50;
+	public static final int TRIGGER_DELAY_MAX = 250;
+	public static final int TRIGGER_WAIT_MAX = 10;
 
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 	private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve(CPvPHelper.MOD_ID + ".json");
@@ -66,6 +69,22 @@ public final class CPvPConfig {
 	/** Extra ticks between two swaps while the key is held. */
 	public int spearSwapRepeatDelay = 0;
 
+	// TriggerBot
+	public boolean triggerBotEnabled = false;
+	/** Attack players only; otherwise mobs as well. */
+	public boolean triggerPlayersOnly = true;
+	/** Only with a sword, axe, mace, spear or trident in the main hand. */
+	public boolean triggerWeaponOnly = true;
+	/** Lowest attack charge in percent; every hit rolls its threshold between this value and 100. */
+	public int triggerCharge = 100;
+	/** Reaction delay range in milliseconds, rolled again for every hit. */
+	public int triggerDelayMin = 0;
+	public int triggerDelayMax = 30;
+	/** Ticks a ready hit may wait in a jump for the fall that makes it critical. */
+	public int triggerCritWait = 8;
+	/** Ticks a ready hit may wait for the sprint to come back during a w-tap or s-tap. */
+	public int triggerSprintWait = 3;
+
 	public static CPvPConfig get() {
 		return instance;
 	}
@@ -105,5 +124,10 @@ public final class CPvPConfig {
 		anchorExplodeDelay = Mth.clamp(anchorExplodeDelay, 0, ANCHOR_DELAY_MAX);
 		stunSlamDelay = Mth.clamp(stunSlamDelay, 0, STUN_SLAM_DELAY_MAX);
 		spearSwapRepeatDelay = Mth.clamp(spearSwapRepeatDelay, 0, SPEAR_REPEAT_DELAY_MAX);
+		triggerCharge = Mth.clamp(triggerCharge, TRIGGER_CHARGE_MIN, 100);
+		triggerDelayMin = Mth.clamp(triggerDelayMin, 0, TRIGGER_DELAY_MAX);
+		triggerDelayMax = Mth.clamp(triggerDelayMax, 0, TRIGGER_DELAY_MAX);
+		triggerCritWait = Mth.clamp(triggerCritWait, 0, TRIGGER_WAIT_MAX);
+		triggerSprintWait = Mth.clamp(triggerSprintWait, 0, TRIGGER_WAIT_MAX);
 	}
 }
