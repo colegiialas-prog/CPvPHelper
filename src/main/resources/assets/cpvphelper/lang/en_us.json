@@ -72,5 +72,15 @@
 	"key.cpvphelper.toggle_anchorplace": "Toggle AnchorPlace",
 	"key.cpvphelper.toggle_stunslam": "Toggle StunSlam",
 	"key.cpvphelper.toggle_triggerbot": "Toggle TriggerBot",
-	"key.cpvphelper.spear_swap": "Spear Swap"
+	"key.cpvphelper.spear_swap": "Spear Swap",
+	"cpvphelper.feature.jumpreset": "JumpReset",
+	"cpvphelper.option.trigger.hold_key": "Only While Key Held",
+	"cpvphelper.option.trigger.hold_key.tooltip": "Attacks only while the "TriggerBot hold" key is down (Controls > CPvPHelper, mouse buttons work too).",
+	"cpvphelper.option.jump_reset.enabled.tooltip": "When a hit knocks you back while you stand on the ground, jumps in the very tick the knockback is applied. Perfect jump reset timing.",
+	"cpvphelper.option.jump_reset.while_using": "While Using Items",
+	"cpvphelper.option.jump_reset.while_using.tooltip": "Also jump reset while eating or blocking.",
+	"cpvphelper.option.jump_reset.chance": "Chance",
+	"cpvphelper.option.jump_reset.chance.tooltip": "Chance that a knockback gets a jump reset.",
+	"key.cpvphelper.trigger_hold": "TriggerBot hold",
+	"key.cpvphelper.toggle_jumpreset": "Toggle JumpReset"
 }

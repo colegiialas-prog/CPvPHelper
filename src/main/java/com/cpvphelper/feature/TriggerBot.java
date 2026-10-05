@@ -6,6 +6,7 @@ import com.cpvphelper.combat.SprintState;
 import com.cpvphelper.config.CPvPConfig;
 import com.cpvphelper.mixin.MinecraftAccessor;
 import java.util.concurrent.ThreadLocalRandom;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.component.DataComponents;
@@ -28,6 +29,7 @@ import net.minecraft.world.phys.HitResult;
  * rolls its own reaction delay and charge threshold.
  */
 public final class TriggerBot {
+	private static KeyMapping holdKey;
 	private static Entity target;
 	private static long readyTick = -1;
 	private static long fireTime;
@@ -35,6 +37,10 @@ public final class TriggerBot {
 	private static float chargeThreshold = 1.0F;
 
 	private TriggerBot() {
+	}
+
+	public static void init(KeyMapping mapping) {
+		holdKey = mapping;
 	}
 
 	/** Head of every frame, before its client ticks. */
@@ -86,6 +92,9 @@ public final class TriggerBot {
 			return false;
 
 		if (!player.isAlive() || player.isSpectator() || player.isUsingItem() || player.isHandsBusy() || mc.gameMode.isDestroying())
+			return false;
+
+		if (config.triggerHoldKey && (holdKey == null || !holdKey.isDown()))
 			return false;
 
 		if (AnchorPlace.isActive() || StunSlam.isPending() || ((MinecraftAccessor) mc).cpvphelper$getMissTime() > 0)

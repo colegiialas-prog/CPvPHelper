@@ -72,5 +72,15 @@
 	"key.cpvphelper.toggle_anchorplace": "Вкл/выкл AnchorPlace",
 	"key.cpvphelper.toggle_stunslam": "Вкл/выкл StunSlam",
 	"key.cpvphelper.toggle_triggerbot": "Вкл/выкл TriggerBot",
-	"key.cpvphelper.spear_swap": "Спир-свап"
+	"key.cpvphelper.spear_swap": "Спир-свап",
+	"cpvphelper.feature.jumpreset": "JumpReset",
+	"cpvphelper.option.trigger.hold_key": "Только при зажатой клавише",
+	"cpvphelper.option.trigger.hold_key.tooltip": "Бьёт только пока зажата клавиша «TriggerBot: удержание» (Управление → CPvPHelper, можно и кнопку мыши).",
+	"cpvphelper.option.jump_reset.enabled.tooltip": "Когда удар отталкивает тебя, пока ты стоишь на земле, прыгает в тот же тик, когда применяется отдача. Идеальный тайминг джамп ресета.",
+	"cpvphelper.option.jump_reset.while_using": "При использовании предметов",
+	"cpvphelper.option.jump_reset.while_using.tooltip": "Делать джамп ресет и когда ты ешь или держишь щит.",
+	"cpvphelper.option.jump_reset.chance": "Шанс",
+	"cpvphelper.option.jump_reset.chance.tooltip": "Шанс, что на отдачу будет сделан джамп ресет.",
+	"key.cpvphelper.trigger_hold": "TriggerBot: удержание",
+	"key.cpvphelper.toggle_jumpreset": "Вкл/выкл JumpReset"
 }

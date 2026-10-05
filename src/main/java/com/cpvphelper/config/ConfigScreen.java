@@ -103,6 +103,7 @@ public class ConfigScreen extends OptionsSubScreen {
 		this.list.addHeader(Component.translatable("cpvphelper.feature.triggerbot"));
 		this.list.addSmall(
 			toggle("cpvphelper.option.enabled", "cpvphelper.option.trigger.enabled.tooltip", config.triggerBotEnabled, value -> config.triggerBotEnabled = value),
+			toggle("cpvphelper.option.trigger.hold_key", "cpvphelper.option.trigger.hold_key.tooltip", config.triggerHoldKey, value -> config.triggerHoldKey = value),
 			toggle("cpvphelper.option.trigger.players_only", "cpvphelper.option.trigger.players_only.tooltip", config.triggerPlayersOnly, value -> config.triggerPlayersOnly = value),
 			toggle("cpvphelper.option.trigger.weapon_only", "cpvphelper.option.trigger.weapon_only.tooltip", config.triggerWeaponOnly, value -> config.triggerWeaponOnly = value),
 			slider(
@@ -148,6 +149,13 @@ public class ConfigScreen extends OptionsSubScreen {
 				config.triggerSprintWait,
 				value -> config.triggerSprintWait = value
 			)
+		);
+
+		this.list.addHeader(Component.translatable("cpvphelper.feature.jumpreset"));
+		this.list.addSmall(
+			toggle("cpvphelper.option.enabled", "cpvphelper.option.jump_reset.enabled.tooltip", config.jumpResetEnabled, value -> config.jumpResetEnabled = value),
+			toggle("cpvphelper.option.jump_reset.while_using", "cpvphelper.option.jump_reset.while_using.tooltip", config.jumpResetWhileUsing, value -> config.jumpResetWhileUsing = value),
+			slider("cpvphelper.option.jump_reset.chance", "cpvphelper.option.jump_reset.chance.tooltip", "cpvphelper.value.percent", 0, 100, config.jumpResetChance, value -> config.jumpResetChance = value)
 		);
 	}
 

@@ -3,6 +3,7 @@ package com.cpvphelper;
 import com.cpvphelper.combat.SprintState;
 import com.cpvphelper.config.CPvPConfig;
 import com.cpvphelper.feature.SpearSwap;
+import com.cpvphelper.feature.TriggerBot;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -23,6 +24,7 @@ public class CPvPHelper implements ClientModInitializer {
 	private static KeyMapping toggleAnchorPlace;
 	private static KeyMapping toggleStunSlam;
 	private static KeyMapping toggleTriggerBot;
+	private static KeyMapping toggleJumpReset;
 
 	@Override
 	public void onInitializeClient() {
@@ -40,6 +42,12 @@ public class CPvPHelper implements ClientModInitializer {
 		);
 		toggleTriggerBot = KeyMappingHelper.registerKeyMapping(
 			new KeyMapping("key.cpvphelper.toggle_triggerbot", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
+		);
+		TriggerBot.init(KeyMappingHelper.registerKeyMapping(
+			new KeyMapping("key.cpvphelper.trigger_hold", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
+		));
+		toggleJumpReset = KeyMappingHelper.registerKeyMapping(
+			new KeyMapping("key.cpvphelper.toggle_jumpreset", InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category)
 		);
 		// Handled in handleKeybinds, next to the vanilla attack key. Mouse buttons can be bound too.
 		SpearSwap.init(KeyMappingHelper.registerKeyMapping(
@@ -75,6 +83,12 @@ public class CPvPHelper implements ClientModInitializer {
 			config.triggerBotEnabled = !config.triggerBotEnabled;
 			CPvPConfig.save();
 			showToggle(mc, "cpvphelper.feature.triggerbot", config.triggerBotEnabled);
+		}
+
+		while (toggleJumpReset.consumeClick()) {
+			config.jumpResetEnabled = !config.jumpResetEnabled;
+			CPvPConfig.save();
+			showToggle(mc, "cpvphelper.feature.jumpreset", config.jumpResetEnabled);
 		}
 	}
 

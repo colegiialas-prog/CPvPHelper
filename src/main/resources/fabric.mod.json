@@ -3,7 +3,7 @@
 	"id": "cpvphelper",
 	"version": "${version}",
 	"name": "CPvPHelper",
-	"description": "Crystal PvP helper: AutoTotem, AnchorPlace, StunSlam, SpearSwap and TriggerBot. Configurable through Mod Menu.",
+	"description": "Crystal PvP helper: AutoTotem, AnchorPlace, StunSlam, SpearSwap, TriggerBot and JumpReset. Configurable through Mod Menu.",
 	"authors": [
 		"colegiialas-prog"
 	],

@@ -84,6 +84,15 @@ public final class CPvPConfig {
 	public int triggerCritWait = 8;
 	/** Ticks a ready hit may wait for the sprint to come back during a w-tap or s-tap. */
 	public int triggerSprintWait = 3;
+	/** Only attack while the TriggerBot hold key is down. */
+	public boolean triggerHoldKey = false;
+
+	// JumpReset
+	public boolean jumpResetEnabled = false;
+	/** Chance in percent that a knockback gets a jump reset. */
+	public int jumpResetChance = 100;
+	/** Also jump while eating or blocking; the jump does not stop the item use. */
+	public boolean jumpResetWhileUsing = true;
 
 	public static CPvPConfig get() {
 		return instance;
@@ -129,5 +138,6 @@ public final class CPvPConfig {
 		triggerDelayMax = Mth.clamp(triggerDelayMax, 0, TRIGGER_DELAY_MAX);
 		triggerCritWait = Mth.clamp(triggerCritWait, 0, TRIGGER_WAIT_MAX);
 		triggerSprintWait = Mth.clamp(triggerSprintWait, 0, TRIGGER_WAIT_MAX);
+		jumpResetChance = Mth.clamp(jumpResetChance, 0, 100);
 	}
 }
