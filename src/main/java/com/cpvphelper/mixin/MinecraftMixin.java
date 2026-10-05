@@ -5,6 +5,7 @@ import com.cpvphelper.feature.AutoTotem;
 import com.cpvphelper.feature.ClientTicks;
 import com.cpvphelper.feature.SpearSwap;
 import com.cpvphelper.feature.StunSlam;
+import com.cpvphelper.feature.TriggerBot;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.Minecraft;
@@ -19,6 +20,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Minecraft.class)
 public abstract class MinecraftMixin {
+	/** Start of every frame: the rotation of the last mouse move, before the client ticks of this frame. */
+	@Inject(method = "runTick", at = @At("HEAD"))
+	private void cpvphelper$frameStart(CallbackInfo ci) {
+		TriggerBot.onFrame((Minecraft) (Object) this);
+	}
+
 	@Inject(method = "tick", at = @At("HEAD"))
 	private void cpvphelper$tickStart(CallbackInfo ci) {
 		ClientTicks.increment();

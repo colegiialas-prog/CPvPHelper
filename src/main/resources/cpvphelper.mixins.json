@@ -6,7 +6,8 @@
 		"KeyboardInputMixin",
 		"MinecraftAccessor",
 		"MinecraftMixin",
-		"MultiPlayerGameModeAccessor"
+		"MultiPlayerGameModeAccessor",
+		"MultiPlayerGameModeMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
