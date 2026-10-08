@@ -3,7 +3,7 @@
 	"id": "cpvphelper",
 	"version": "${version}",
 	"name": "CPvPHelper",
-	"description": "Crystal PvP helper: AutoTotem, AnchorPlace, StunSlam, SpearSwap, TriggerBot and JumpReset. Settings open with Ctrl+Shift+X.",
+	"description": "Crystal PvP helper: AutoTotem, AnchorPlace, StunSlam, SpearSwap, TriggerBot, SprintReset, JumpReset and AutoCart. Settings open with Ctrl+Shift+X.",
 	"authors": [
 		"colegiialas-prog"
 	],

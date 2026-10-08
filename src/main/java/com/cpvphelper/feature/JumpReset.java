@@ -1,6 +1,7 @@
 package com.cpvphelper.feature;
 
 import com.cpvphelper.config.CPvPConfig;
+import com.cpvphelper.input.FeatureBind;
 import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
@@ -30,7 +31,7 @@ public final class JumpReset {
 		LocalPlayer player = mc.player;
 		Vec3 before = velocityBefore;
 		velocityBefore = null;
-		if (player == null || before == null || !CPvPConfig.get().jumpResetEnabled)
+		if (player == null || before == null || !FeatureBind.JUMP_RESET.isActive())
 			return;
 
 		Vec3 velocity = player.getDeltaMovement();

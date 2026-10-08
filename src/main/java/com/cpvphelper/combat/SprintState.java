@@ -40,11 +40,14 @@ public final class SprintState {
 		spent = false;
 	}
 
-	/** Head of every attack sent to the server, before it resets the attack charge. */
-	public static void onAttack(Player player) {
+	/** Head of every attack sent to the server, before it resets the attack charge. True if it spends the sprint. */
+	public static boolean onAttack(Player player) {
 		lastAttackTick = ClientTicks.get();
-		if (sent && player.getAttackStrengthScale(0.5F) > 0.9F)
-			spent = true;
+		if (!isServerSprinting() || player.getAttackStrengthScale(0.5F) <= 0.9F)
+			return false;
+
+		spent = true;
+		return true;
 	}
 
 	public static boolean isServerSprinting() {

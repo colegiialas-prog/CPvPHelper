@@ -16,8 +16,7 @@ public final class CrosshairTarget {
 	private CrosshairTarget() {
 	}
 
-	public static EntityHitResult pick(LocalPlayer player) {
-		double range = player.entityInteractionRange();
+	public static EntityHitResult pick(LocalPlayer player, double range) {
 		Vec3 eye = player.getEyePosition();
 		Vec3 reach = player.getViewVector(1.0F).scale(range);
 		Vec3 end = eye.add(reach);
