@@ -4,7 +4,7 @@ import com.cpvphelper.combat.CriticalHit;
 import com.cpvphelper.combat.CrosshairTarget;
 import com.cpvphelper.combat.SprintState;
 import com.cpvphelper.config.CPvPConfig;
-import com.cpvphelper.input.Binds;
+import com.cpvphelper.input.FeatureBind;
 import com.cpvphelper.mixin.MinecraftAccessor;
 import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.client.Minecraft;
@@ -42,12 +42,12 @@ public final class TriggerBot {
 	public static void onFrame(Minecraft mc) {
 		CPvPConfig config = CPvPConfig.get();
 		LocalPlayer player = mc.player;
-		if (!config.triggerBotEnabled || player == null || mc.level == null || mc.gameMode == null || !canAttack(mc, player, config)) {
+		if (!FeatureBind.TRIGGER_BOT.isActive() || player == null || mc.level == null || mc.gameMode == null || !canAttack(mc, player, config)) {
 			reset();
 			return;
 		}
 
-		EntityHitResult hit = CrosshairTarget.pick(player);
+		EntityHitResult hit = CrosshairTarget.pick(player, Math.min(player.entityInteractionRange(), config.triggerReach / 100.0));
 		if (hit == null || !isTarget(hit.getEntity(), config) || !isInRange(player, hit)) {
 			reset();
 			return;
@@ -89,10 +89,7 @@ public final class TriggerBot {
 		if (!player.isAlive() || player.isSpectator() || player.isUsingItem() || player.isHandsBusy() || mc.gameMode.isDestroying())
 			return false;
 
-		if (config.triggerHoldBind != Binds.NONE && !Binds.isDown(mc, config.triggerHoldBind))
-			return false;
-
-		if (AnchorPlace.isActive() || StunSlam.isPending() || ((MinecraftAccessor) mc).cpvphelper$getMissTime() > 0)
+		if (AnchorPlace.isActive() || AutoCart.isActive() || StunSlam.isPending() || ((MinecraftAccessor) mc).cpvphelper$getMissTime() > 0)
 			return false;
 
 		return !config.triggerWeaponOnly || isWeapon(player.getMainHandItem());

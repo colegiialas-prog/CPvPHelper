@@ -23,6 +23,16 @@ public final class CPvPConfig {
 	public static final int TRIGGER_CHARGE_MIN = 50;
 	public static final int TRIGGER_DELAY_MAX = 250;
 	public static final int TRIGGER_WAIT_MAX = 10;
+	public static final int TRIGGER_REACH_MIN = 150;
+	public static final int TRIGGER_REACH_MAX = 300;
+	public static final int SPRINT_RESET_DELAY_MAX = 3;
+	public static final int SPRINT_RESET_TICKS_MIN = 1;
+	public static final int SPRINT_RESET_TICKS_MAX = 3;
+	public static final int AUTO_CART_RANGE_MIN = 100;
+	public static final int AUTO_CART_RANGE_MAX = 450;
+	public static final int AUTO_CART_DELAY_MAX = 5;
+	public static final int AUTO_CART_BOW_CHARGE_MIN = 3;
+	public static final int AUTO_CART_BOW_CHARGE_MAX = 20;
 
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 	private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve(CPvPHelper.MOD_ID + ".json");
@@ -69,8 +79,8 @@ public final class CPvPConfig {
 	public boolean spearSwapHold = true;
 	/** Extra ticks between two swaps while the key is held. */
 	public int spearSwapRepeatDelay = 0;
-	/** The swap bind, see Binds. */
-	public int spearSwapBind = 0;
+	/** The swap key, see Binds. */
+	public int spearSwapBind = Binds.NONE;
 
 	// TriggerBot
 	public boolean triggerBotEnabled = false;
@@ -87,8 +97,19 @@ public final class CPvPConfig {
 	public int triggerCritWait = 8;
 	/** Ticks a ready hit may wait for the sprint to come back during a w-tap or s-tap. */
 	public int triggerSprintWait = 3;
-	/** Only attack while this bind is held; Binds.NONE = always. */
-	public int triggerHoldBind = 0;
+	/** Longest hit distance in hundredths of a block, never more than the vanilla reach. */
+	public int triggerReach = 300;
+	public BindSetting triggerBind = new BindSetting();
+
+	// SprintReset
+	public boolean sprintResetEnabled = false;
+	/** S-tap: press the back key instead of only releasing the forward key. */
+	public boolean sprintResetBackward = false;
+	/** Ticks between the sprint hit and the tap. */
+	public int sprintResetDelay = 0;
+	/** Ticks the tap lasts. */
+	public int sprintResetTicks = 1;
+	public BindSetting sprintResetBind = new BindSetting();
 
 	// JumpReset
 	public boolean jumpResetEnabled = false;
@@ -96,6 +117,25 @@ public final class CPvPConfig {
 	public int jumpResetChance = 100;
 	/** Also jump while eating or blocking; the jump does not stop the item use. */
 	public boolean jumpResetWhileUsing = true;
+	public BindSetting jumpResetBind = new BindSetting();
+
+	// AutoCart
+	public boolean autoCartEnabled = false;
+	/** Longest distance to the rail in hundredths of a block, never more than the vanilla block reach. */
+	public int autoCartRange = 450;
+	/** Powered rail instead of a regular rail. */
+	public boolean autoCartPoweredRail = false;
+	/** Light the cart with flint and steel from the hotbar. */
+	public boolean autoCartIgnite = true;
+	/** Refill the TNT minecart hotbar slot from the inventory once it runs out. */
+	public boolean autoCartRestock = true;
+	/** Ticks between two steps. */
+	public int autoCartDelay = 1;
+	/** Ticks the bow of the shoot bind is drawn. */
+	public int autoCartBowCharge = 10;
+	/** The bow shoot key, see Binds. */
+	public int autoCartBowBind = Binds.NONE;
+	public BindSetting autoCartBind = new BindSetting();
 
 	public static CPvPConfig get() {
 		return instance;
@@ -141,8 +181,18 @@ public final class CPvPConfig {
 		triggerDelayMax = Mth.clamp(triggerDelayMax, 0, TRIGGER_DELAY_MAX);
 		triggerCritWait = Mth.clamp(triggerCritWait, 0, TRIGGER_WAIT_MAX);
 		triggerSprintWait = Mth.clamp(triggerSprintWait, 0, TRIGGER_WAIT_MAX);
-		triggerHoldBind = Binds.CHOICES.contains(triggerHoldBind) ? triggerHoldBind : Binds.NONE;
-		spearSwapBind = Binds.CHOICES.contains(spearSwapBind) ? spearSwapBind : Binds.NONE;
+		triggerReach = Mth.clamp(triggerReach, TRIGGER_REACH_MIN, TRIGGER_REACH_MAX);
+		sprintResetDelay = Mth.clamp(sprintResetDelay, 0, SPRINT_RESET_DELAY_MAX);
+		sprintResetTicks = Mth.clamp(sprintResetTicks, SPRINT_RESET_TICKS_MIN, SPRINT_RESET_TICKS_MAX);
+		spearSwapBind = Binds.isValid(spearSwapBind) ? spearSwapBind : Binds.NONE;
+		triggerBind = BindSetting.sanitize(triggerBind);
+		sprintResetBind = BindSetting.sanitize(sprintResetBind);
+		jumpResetBind = BindSetting.sanitize(jumpResetBind);
+		autoCartBind = BindSetting.sanitize(autoCartBind);
+		autoCartBowBind = Binds.isValid(autoCartBowBind) ? autoCartBowBind : Binds.NONE;
+		autoCartRange = Mth.clamp(autoCartRange, AUTO_CART_RANGE_MIN, AUTO_CART_RANGE_MAX);
+		autoCartDelay = Mth.clamp(autoCartDelay, 0, AUTO_CART_DELAY_MAX);
+		autoCartBowCharge = Mth.clamp(autoCartBowCharge, AUTO_CART_BOW_CHARGE_MIN, AUTO_CART_BOW_CHARGE_MAX);
 		jumpResetChance = Mth.clamp(jumpResetChance, 0, 100);
 	}
 }

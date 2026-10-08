@@ -1,11 +1,13 @@
 package com.cpvphelper.mixin;
 
 import com.cpvphelper.feature.AnchorPlace;
+import com.cpvphelper.feature.AutoCart;
 import com.cpvphelper.feature.AutoTotem;
 import com.cpvphelper.feature.ClientTicks;
 import com.cpvphelper.feature.SpearSwap;
 import com.cpvphelper.feature.StunSlam;
 import com.cpvphelper.feature.TriggerBot;
+import com.cpvphelper.input.FeatureBind;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.Minecraft;
@@ -23,7 +25,9 @@ public abstract class MinecraftMixin {
 	/** Start of every frame: the rotation of the last mouse move, before the client ticks of this frame. */
 	@Inject(method = "runTick", at = @At("HEAD"))
 	private void cpvphelper$frameStart(CallbackInfo ci) {
-		TriggerBot.onFrame((Minecraft) (Object) this);
+		Minecraft mc = (Minecraft) (Object) this;
+		FeatureBind.onFrame(mc);
+		TriggerBot.onFrame(mc);
 	}
 
 	@Inject(method = "tick", at = @At("HEAD"))
@@ -37,6 +41,7 @@ public abstract class MinecraftMixin {
 		Minecraft mc = (Minecraft) (Object) this;
 		boolean totemSwapped = AutoTotem.onKeybinds(mc);
 		AnchorPlace.onKeybinds(mc, totemSwapped);
+		AutoCart.onKeybinds(mc, totemSwapped);
 		StunSlam.onKeybinds(mc);
 		SpearSwap.onKeybinds(mc);
 	}

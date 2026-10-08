@@ -55,7 +55,7 @@ public final class SpearSwap {
 	}
 
 	private static boolean swap(Minecraft mc, LocalPlayer player) {
-		if (player.isSpectator() || player.isHandsBusy() || player.isUsingItem() || mc.gameMode.isDestroying() || AnchorPlace.isActive()) {
+		if (player.isSpectator() || player.isHandsBusy() || player.isUsingItem() || mc.gameMode.isDestroying() || AnchorPlace.isActive() || AutoCart.isActive()) {
 			return false;
 		}
 

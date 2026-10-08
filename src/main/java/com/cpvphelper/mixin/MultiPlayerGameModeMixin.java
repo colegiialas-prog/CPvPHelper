@@ -1,6 +1,7 @@
 package com.cpvphelper.mixin;
 
 import com.cpvphelper.combat.SprintState;
+import com.cpvphelper.feature.SprintReset;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -14,6 +15,7 @@ public abstract class MultiPlayerGameModeMixin {
 	/** Every attack packet, from a click or from a feature, before the attack charge is reset. */
 	@Inject(method = "attack(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;)V", at = @At("HEAD"))
 	private void cpvphelper$attack(Player player, Entity target, CallbackInfo ci) {
-		SprintState.onAttack(player);
+		if (SprintState.onAttack(player))
+			SprintReset.onSprintHit(target);
 	}
 }

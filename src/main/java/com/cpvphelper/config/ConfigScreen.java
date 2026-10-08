@@ -1,7 +1,8 @@
 package com.cpvphelper.config;
 
-import com.cpvphelper.input.Binds;
 import com.mojang.serialization.Codec;
+import java.util.List;
+import java.util.Locale;
 import java.util.function.Consumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
@@ -18,6 +19,8 @@ public class ConfigScreen extends OptionsSubScreen {
 	@Override
 	protected void addOptions() {
 		CPvPConfig config = CPvPConfig.get();
+
+		this.list.addSmall(openBinds());
 
 		this.list.addHeader(Component.translatable("cpvphelper.feature.autototem"));
 		this.list.addSmall(
@@ -91,7 +94,6 @@ public class ConfigScreen extends OptionsSubScreen {
 		this.list.addHeader(Component.translatable("cpvphelper.feature.spearswap"));
 		this.list.addSmall(
 			toggle("cpvphelper.option.enabled", "cpvphelper.option.spear_swap.enabled.tooltip", config.spearSwapEnabled, value -> config.spearSwapEnabled = value),
-			bind("cpvphelper.option.spear_swap.bind", "cpvphelper.option.spear_swap.bind.tooltip", config.spearSwapBind, value -> config.spearSwapBind = value),
 			toggle("cpvphelper.option.spear_swap.hold", "cpvphelper.option.spear_swap.hold.tooltip", config.spearSwapHold, value -> config.spearSwapHold = value),
 			ticks(
 				"cpvphelper.option.spear_swap.repeat_delay",
@@ -106,9 +108,16 @@ public class ConfigScreen extends OptionsSubScreen {
 		this.list.addHeader(Component.translatable("cpvphelper.feature.triggerbot"));
 		this.list.addSmall(
 			toggle("cpvphelper.option.enabled", "cpvphelper.option.trigger.enabled.tooltip", config.triggerBotEnabled, value -> config.triggerBotEnabled = value),
-			bind("cpvphelper.option.trigger.hold_key", "cpvphelper.option.trigger.hold_key.tooltip", config.triggerHoldBind, value -> config.triggerHoldBind = value),
 			toggle("cpvphelper.option.trigger.players_only", "cpvphelper.option.trigger.players_only.tooltip", config.triggerPlayersOnly, value -> config.triggerPlayersOnly = value),
 			toggle("cpvphelper.option.trigger.weapon_only", "cpvphelper.option.trigger.weapon_only.tooltip", config.triggerWeaponOnly, value -> config.triggerWeaponOnly = value),
+			distance(
+				"cpvphelper.option.trigger.reach",
+				"cpvphelper.option.trigger.reach.tooltip",
+				CPvPConfig.TRIGGER_REACH_MIN,
+				CPvPConfig.TRIGGER_REACH_MAX,
+				config.triggerReach,
+				value -> config.triggerReach = value
+			),
 			slider(
 				"cpvphelper.option.trigger.charge",
 				"cpvphelper.option.trigger.charge.tooltip",
@@ -154,11 +163,58 @@ public class ConfigScreen extends OptionsSubScreen {
 			)
 		);
 
+		this.list.addHeader(Component.translatable("cpvphelper.feature.sprintreset"));
+		this.list.addSmall(
+			toggle("cpvphelper.option.enabled", "cpvphelper.option.sprint_reset.enabled.tooltip", config.sprintResetEnabled, value -> config.sprintResetEnabled = value),
+			toggle("cpvphelper.option.sprint_reset.backward", "cpvphelper.option.sprint_reset.backward.tooltip", config.sprintResetBackward, value -> config.sprintResetBackward = value),
+			ticks(
+				"cpvphelper.option.sprint_reset.delay",
+				"cpvphelper.option.sprint_reset.delay.tooltip",
+				0,
+				CPvPConfig.SPRINT_RESET_DELAY_MAX,
+				config.sprintResetDelay,
+				value -> config.sprintResetDelay = value
+			),
+			ticks(
+				"cpvphelper.option.sprint_reset.ticks",
+				"cpvphelper.option.sprint_reset.ticks.tooltip",
+				CPvPConfig.SPRINT_RESET_TICKS_MIN,
+				CPvPConfig.SPRINT_RESET_TICKS_MAX,
+				config.sprintResetTicks,
+				value -> config.sprintResetTicks = value
+			)
+		);
+
 		this.list.addHeader(Component.translatable("cpvphelper.feature.jumpreset"));
 		this.list.addSmall(
 			toggle("cpvphelper.option.enabled", "cpvphelper.option.jump_reset.enabled.tooltip", config.jumpResetEnabled, value -> config.jumpResetEnabled = value),
 			toggle("cpvphelper.option.jump_reset.while_using", "cpvphelper.option.jump_reset.while_using.tooltip", config.jumpResetWhileUsing, value -> config.jumpResetWhileUsing = value),
 			slider("cpvphelper.option.jump_reset.chance", "cpvphelper.option.jump_reset.chance.tooltip", "cpvphelper.value.percent", 0, 100, config.jumpResetChance, value -> config.jumpResetChance = value)
+		);
+
+		this.list.addHeader(Component.translatable("cpvphelper.feature.autocart"));
+		this.list.addSmall(
+			toggle("cpvphelper.option.enabled", "cpvphelper.option.auto_cart.enabled.tooltip", config.autoCartEnabled, value -> config.autoCartEnabled = value),
+			toggle("cpvphelper.option.auto_cart.powered_rail", "cpvphelper.option.auto_cart.powered_rail.tooltip", config.autoCartPoweredRail, value -> config.autoCartPoweredRail = value),
+			toggle("cpvphelper.option.auto_cart.ignite", "cpvphelper.option.auto_cart.ignite.tooltip", config.autoCartIgnite, value -> config.autoCartIgnite = value),
+			toggle("cpvphelper.option.auto_cart.restock", "cpvphelper.option.auto_cart.restock.tooltip", config.autoCartRestock, value -> config.autoCartRestock = value),
+			distance(
+				"cpvphelper.option.auto_cart.range",
+				"cpvphelper.option.auto_cart.range.tooltip",
+				CPvPConfig.AUTO_CART_RANGE_MIN,
+				CPvPConfig.AUTO_CART_RANGE_MAX,
+				config.autoCartRange,
+				value -> config.autoCartRange = value
+			),
+			ticks("cpvphelper.option.auto_cart.delay", "cpvphelper.option.auto_cart.delay.tooltip", 0, CPvPConfig.AUTO_CART_DELAY_MAX, config.autoCartDelay, value -> config.autoCartDelay = value),
+			ticks(
+				"cpvphelper.option.auto_cart.bow_charge",
+				"cpvphelper.option.auto_cart.bow_charge.tooltip",
+				CPvPConfig.AUTO_CART_BOW_CHARGE_MIN,
+				CPvPConfig.AUTO_CART_BOW_CHARGE_MAX,
+				config.autoCartBowCharge,
+				value -> config.autoCartBowCharge = value
+			)
 		);
 	}
 
@@ -172,12 +228,23 @@ public class ConfigScreen extends OptionsSubScreen {
 		return OptionInstance.createBoolean(key, OptionInstance.cachedConstantTooltip(Component.translatable(tooltipKey)), value, setter::accept);
 	}
 
-	private static OptionInstance<Integer> bind(String key, String tooltipKey, int value, Consumer<Integer> setter) {
+	private OptionInstance<Boolean> openBinds() {
+		return new OptionInstance<>(
+			"cpvphelper.option.binds",
+			OptionInstance.cachedConstantTooltip(Component.translatable("cpvphelper.option.binds.tooltip")),
+			(caption, value) -> Options.genericValueLabel(caption, Component.translatable("cpvphelper.option.binds.open")),
+			new OptionInstance.Enum<>(List.of(Boolean.FALSE, Boolean.TRUE), Codec.BOOL),
+			Boolean.FALSE,
+			value -> this.minecraft.gui.setScreen(new BindScreen(this))
+		);
+	}
+
+	private static OptionInstance<Integer> distance(String key, String tooltipKey, int min, int max, int value, Consumer<Integer> setter) {
 		return new OptionInstance<>(
 			key,
 			OptionInstance.cachedConstantTooltip(Component.translatable(tooltipKey)),
-			(caption, bind) -> Options.genericValueLabel(caption, Binds.name(bind)),
-			new OptionInstance.Enum<>(Binds.CHOICES, Codec.INT),
+			(caption, hundredths) -> Options.genericValueLabel(caption, Component.translatable("cpvphelper.value.blocks", String.format(Locale.ROOT, "%.2f", hundredths / 100.0))),
+			new OptionInstance.IntRange(min, max),
 			value,
 			setter::accept
 		);
