@@ -13,10 +13,12 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.TraceableEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerInput;
@@ -334,7 +336,7 @@ public final class AutoCart {
 	}
 
 	private static Entity findCart(ClientLevel level) {
-		List<Entity> carts = level.getEntities((Entity) null, new AABB(railPos).inflate(0.2, 1.0, 0.2), entity -> entity.getType() == EntityType.TNT_MINECART);
+		List<Entity> carts = level.getEntities((Entity) null, new AABB(railPos).inflate(0.2, 1.0, 0.2), AutoCart::isTntMinecart);
 		return carts.isEmpty() ? null : carts.getFirst();
 	}
 
@@ -343,9 +345,12 @@ public final class AutoCart {
 		return player.getEyePosition().distanceToSqr(Vec3.atCenterOf(pos)) <= range * range;
 	}
 
+	private static boolean isTntMinecart(Entity entity) {
+		return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(Identifier.fromNamespaceAndPath("minecraft", "tnt_minecart"));
+	}
+
 	private static boolean isOwnArrow(Entity entity, LocalPlayer player) {
-		EntityType<?> type = entity.getType();
-		if (type != EntityType.ARROW && type != EntityType.SPECTRAL_ARROW)
+		if (!entity.getType().is(EntityTypeTags.ARROWS))
 			return false;
 
 		return entity instanceof TraceableEntity traceable && traceable.getOwner() == player;
