@@ -97,6 +97,8 @@ public final class CPvPConfig {
 	public int triggerCritWait = 8;
 	/** Ticks a ready hit may wait for the sprint to come back during a w-tap or s-tap. */
 	public int triggerSprintWait = 3;
+	/** Shortest hit distance in hundredths of a block: closer targets are left alone. */
+	public int triggerReachMin = 0;
 	/** Longest hit distance in hundredths of a block, never more than the vanilla reach. */
 	public int triggerReach = 300;
 	public BindSetting triggerBind = new BindSetting();
@@ -181,6 +183,7 @@ public final class CPvPConfig {
 		triggerDelayMax = Mth.clamp(triggerDelayMax, 0, TRIGGER_DELAY_MAX);
 		triggerCritWait = Mth.clamp(triggerCritWait, 0, TRIGGER_WAIT_MAX);
 		triggerSprintWait = Mth.clamp(triggerSprintWait, 0, TRIGGER_WAIT_MAX);
+		triggerReachMin = Mth.clamp(triggerReachMin, 0, TRIGGER_REACH_MAX);
 		triggerReach = Mth.clamp(triggerReach, TRIGGER_REACH_MIN, TRIGGER_REACH_MAX);
 		sprintResetDelay = Mth.clamp(sprintResetDelay, 0, SPRINT_RESET_DELAY_MAX);
 		sprintResetTicks = Mth.clamp(sprintResetTicks, SPRINT_RESET_TICKS_MIN, SPRINT_RESET_TICKS_MAX);

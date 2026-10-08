@@ -47,8 +47,10 @@ public final class TriggerBot {
 			return;
 		}
 
-		EntityHitResult hit = CrosshairTarget.pick(player, Math.min(player.entityInteractionRange(), config.triggerReach / 100.0));
-		if (hit == null || !isTarget(hit.getEntity(), config) || !isInRange(player, hit)) {
+		double minReach = Math.min(config.triggerReachMin, config.triggerReach) / 100.0;
+		double maxReach = Math.min(player.entityInteractionRange(), Math.max(config.triggerReachMin, config.triggerReach) / 100.0);
+		EntityHitResult hit = CrosshairTarget.pick(player, maxReach);
+		if (hit == null || !isTarget(hit.getEntity(), config) || !isInRange(player, hit, minReach)) {
 			reset();
 			return;
 		}
@@ -109,7 +111,10 @@ public final class TriggerBot {
 		return !config.triggerPlayersOnly && entity instanceof Mob;
 	}
 
-	private static boolean isInRange(LocalPlayer player, EntityHitResult hit) {
+	private static boolean isInRange(LocalPlayer player, EntityHitResult hit, double minReach) {
+		if (player.getEyePosition().distanceToSqr(hit.getLocation()) < minReach * minReach)
+			return false;
+
 		AttackRange range = player.getMainHandItem().get(DataComponents.ATTACK_RANGE);
 		return range == null || range.isInRange(player, hit.getLocation());
 	}

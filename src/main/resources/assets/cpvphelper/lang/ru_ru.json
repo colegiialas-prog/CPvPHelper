@@ -104,5 +104,7 @@
 	"cpvphelper.option.auto_cart.delay": "Задержка шагов",
 	"cpvphelper.option.auto_cart.delay.tooltip": "Тики между рельсой, вагонеткой и поджогом. 0 = рельса и вагонетка в один тик.",
 	"cpvphelper.option.auto_cart.bow_charge": "Натяжение лука",
-	"cpvphelper.option.auto_cart.bow_charge.tooltip": "Сколько тиков натягивается лук по бинду выстрела. 20 тиков = полная сила."
+	"cpvphelper.option.auto_cart.bow_charge.tooltip": "Сколько тиков натягивается лук по бинду выстрела. 20 тиков = полная сила.",
+	"cpvphelper.option.trigger.reach_min": "Мин. дистанция",
+	"cpvphelper.option.trigger.reach_min.tooltip": "Самое маленькое расстояние от глаз до точки удара по цели: ближе бот не бьёт. Вместе с макс. дистанцией задаёт диапазон, в котором бьёт бот. 0 = без нижней границы."
 }

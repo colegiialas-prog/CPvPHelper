@@ -104,5 +104,7 @@
 	"cpvphelper.option.auto_cart.delay": "Step Delay",
 	"cpvphelper.option.auto_cart.delay.tooltip": "Ticks between rail, cart and ignition. 0 = rail and cart in the same tick.",
 	"cpvphelper.option.auto_cart.bow_charge": "Bow Draw",
-	"cpvphelper.option.auto_cart.bow_charge.tooltip": "How many ticks the bow of the shot bind is drawn. 20 ticks = full power."
+	"cpvphelper.option.auto_cart.bow_charge.tooltip": "How many ticks the bow of the shot bind is drawn. 20 ticks = full power.",
+	"cpvphelper.option.trigger.reach_min": "Min Distance",
+	"cpvphelper.option.trigger.reach_min.tooltip": "Shortest distance from your eyes to the hit point on the target: closer targets are not attacked. Together with Max Distance it sets the range the bot hits in. 0 = no lower limit."
 }

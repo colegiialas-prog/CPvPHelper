@@ -111,6 +111,14 @@ public class ConfigScreen extends OptionsSubScreen {
 			toggle("cpvphelper.option.trigger.players_only", "cpvphelper.option.trigger.players_only.tooltip", config.triggerPlayersOnly, value -> config.triggerPlayersOnly = value),
 			toggle("cpvphelper.option.trigger.weapon_only", "cpvphelper.option.trigger.weapon_only.tooltip", config.triggerWeaponOnly, value -> config.triggerWeaponOnly = value),
 			distance(
+				"cpvphelper.option.trigger.reach_min",
+				"cpvphelper.option.trigger.reach_min.tooltip",
+				0,
+				CPvPConfig.TRIGGER_REACH_MAX,
+				config.triggerReachMin,
+				value -> config.triggerReachMin = value
+			),
+			distance(
 				"cpvphelper.option.trigger.reach",
 				"cpvphelper.option.trigger.reach.tooltip",
 				CPvPConfig.TRIGGER_REACH_MIN,
