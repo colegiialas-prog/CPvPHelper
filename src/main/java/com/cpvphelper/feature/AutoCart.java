@@ -16,7 +16,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.TraceableEntity;
@@ -346,14 +345,20 @@ public final class AutoCart {
 	}
 
 	private static boolean isTntMinecart(Entity entity) {
-		return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(Identifier.fromNamespaceAndPath("minecraft", "tnt_minecart"));
+		return typePath(entity).equals("tnt_minecart");
 	}
 
 	private static boolean isOwnArrow(Entity entity, LocalPlayer player) {
-		if (!entity.getType().is(EntityTypeTags.ARROWS))
+		String type = typePath(entity);
+		if (!type.equals("arrow") && !type.equals("spectral_arrow"))
 			return false;
 
 		return entity instanceof TraceableEntity traceable && traceable.getOwner() == player;
+	}
+
+	private static String typePath(Entity entity) {
+		Identifier id = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
+		return id.getNamespace().equals("minecraft") ? id.getPath() : "";
 	}
 
 	private static boolean isFlying(Entity arrow) {
